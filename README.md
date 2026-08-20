@@ -1,13 +1,13 @@
 # ⚛️ Proton Decay in SU(7) Grand Gauge-Higgs Unification
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22033303-1B6F8C?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.22033303)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.22033302-1B6F8C?logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.22033302)
 [![License](https://img.shields.io/badge/License-Apache_2.0-B5530F)](LICENSE)
 [![Gates](https://img.shields.io/badge/gates-10_green-1B6F8C)](scripts/)
 [![Language](https://img.shields.io/badge/paper-EN_%2B_ES-1B6F8C)](.)
 
 **An obstruction, its minimal escapes, and the one row of their Table 1 that can pay for them.**
 
-**📄 Paper (EN + ES) and every verification script on Zenodo → https://doi.org/10.5281/zenodo.22033303**
+**📄 Paper (EN + ES) and every verification script on Zenodo → https://doi.org/10.5281/zenodo.22033302**
 
 > ### 📚 Part **VI** of a series
 > - **Part I — *Anomaly- and Tadpole-Compatible Fermion Completion of 6D SU(4) GHU***
@@ -119,7 +119,7 @@ and operators above dimension 6, whose charges were not enumerated.
   title  = {Proton Decay in {SU(7)} Grand Gauge-Higgs Unification: An Obstruction,
             Its Minimal Escapes, and the One Row of Their Table~1 That Can Pay for Them},
   year   = {2026},
-  doi    = {10.5281/zenodo.22033303},
+  doi    = {10.5281/zenodo.22033302},
   note   = {Part VI of a series on higher-dimensional gauge-Higgs unification}
 }
 ```
