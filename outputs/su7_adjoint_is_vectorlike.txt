@@ -1,0 +1,55 @@
+==============================================================================
+A -- IS THE SURVIVING 4D SPECTRUM OF A 48 CHIRAL?
+==============================================================================
+  For every surviving component, look for a survivor with EXACTLY opposite
+  Y and extra at the SAME 4D chirality. That pair can be given a gauge-
+  invariant Dirac mass, so neither member is chiral matter.
+
+  48(+1,+1):  18 survivors,  18 of them have a same-chirality conjugate
+               UNPAIRED (i.e. chiral): 0
+  48(+1,-1):  24 survivors,  24 of them have a same-chirality conjugate
+               UNPAIRED (i.e. chiral): 0
+
+  And the reason it can never be otherwise, which is one line:
+  the conjugate of (i,jbar) is (j,ibar), and
+      P5P5'(j,ibar) = p_j p_i = P5P5'(i,jbar)   -> survives with it
+      P5  (j,ibar) = P5_j P5_i = P5  (i,jbar)   -> at the same chirality
+  It is not a property of this Wilson line or of these parities. It is that
+  the adjoint is its own conjugate.
+  verified on all 42 components: True
+
+==============================================================================
+B -- THE CONTROL: THE COMPLEX REPRESENTATIONS MUST COME OUT CHIRAL
+==============================================================================
+  If Sym^2 and Sym^3 were vector-like too, this test would be measuring the
+  orbifold rather than the reality of the representation -- and their model
+  could not have chiral matter at all. It must distinguish them.
+
+  rep        real?    survivors    same-chir conj chiral?
+  48         yes      18           18             NO -- vector-like
+  28=Sym2    no       16           6              yes, 10 chiral states
+  84=Sym3    no       44           10             yes, 34 chiral states
+
+==============================================================================
+C -- WHAT THIS DOES TO THE BRANE QUESTION
+==============================================================================
+  su7_brane_partner.py asked whether a brane-localised charged-lepton partner
+  could complete the 48's rung-2 doublet. The answer is that there is nothing
+  to complete. The doublet comes with its own conjugate, at the same 4D
+  chirality, and the pair is massive. A brane field would be the partner; the
+  defect is one step earlier, in the doublet itself.
+
+  So the exclusion of the 48 in sect. 4 does NOT rest on the Yukawa being
+  gauge-generated, and the headline does not need that precondition. It rests
+  on the 48 being a real representation, which no model-building choice can
+  change and no localised field can repair.
+
+  It also explains their own sentence, which we had taken as a stipulation:
+  the 7, 28, 48 and 84 are introduced with the Higgs potential as their only
+  role. For the 48 that is not a choice -- it is the only thing a real
+  representation CAN do here.
+
+  And it generalises past this paper: on this orbifold no real representation
+  can furnish a chiral generation, so the rung ladder of sect. 4 never has to
+  consider one. The box count and the reality condition between them cover
+  every multiplet their model contains.

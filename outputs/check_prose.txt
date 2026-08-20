@@ -1,0 +1,7 @@
+  su7_proton_row.pdf       4 copula+mayuscula, 4 en la lista blanca, 0 sin explicar
+  su7_proton_row_es.pdf    3 copula+mayuscula, 3 en la lista blanca, 0 sin explicar
+
+  --falsify: se reinyecta el fallo real que motivo esta compuerta.
+     DETECTADO: Un
+
+prosa: ninguna entradilla colgando en ninguna de las dos ediciones

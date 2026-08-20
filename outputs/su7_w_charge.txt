@@ -1,0 +1,46 @@
+==============================================================================
+A -- SU(2)_L, located from their eq. (41)
+==============================================================================
+  their eq. (41) puts the SM doublet on indices 4,5, and its T3 is
+  T^15 = (1/2) diag(0,0,0,1,-1,0,0):
+     T[14] diagonal = [ 0.   0.   0.   0.5 -0.5  0.   0. ]
+  so W^+- are the raising/lowering pair built from
+     sym(4,5)  (index 21)  and  antisym(4,5)  (index 22)
+
+  CONTROL, and it can fail -- the three of them must close on su(2):
+     [sym, antisym] - i T^15      max|.| = 0.00e+00
+     [T^15, sym]    - i antisym   max|.| = 0.00e+00
+     PASS -- they are an su(2), so this really is SU(2)_L.
+
+==============================================================================
+B -- THE WILSON-LINE CHARGE OF THE W, FROM THEIR EQ. (54)
+==============================================================================
+  M^{ac} = f^{a,44,c} antisymmetric : True
+
+  eigenvectors with support on the W directions:
+     q = -0.500000     weight on (sym(4,5), antisym(4,5)) = 0.5000
+     q = -0.500000     weight on (sym(4,5), antisym(4,5)) = 0.5000
+     q = +0.500000     weight on (sym(4,5), antisym(4,5)) = 0.5000
+     q = +0.500000     weight on (sym(4,5), antisym(4,5)) = 0.5000
+
+  >> |q| carried by the W : [np.float64(0.5)]
+     The W sits at Wilson-line charge 1/2, NOT 1.  Its lightest KK mass is
+     therefore (0 + alpha/2)/R5 = alpha/(2 R5), i.e.
+
+        m_W = alpha / (2 R5)      -- THEIR EQ. (81), derived in THEIR model
+
+  Controls that had to fire, or the statement is empty:
+     the 2 modes at |q| = 1 exist   : 2 modes
+     had the W been one of them, m_W would be alpha/R5 and their eq. (82)
+     would carry a factor 2.  The charge decides it, and it is 1/2.
+     the photon must be neutral: T^15 + sqrt3 T^24 is their eq. (78)
+        |M . (T^15 + sqrt3 T^24)| = 0.00e+00   -> uncharged, so it stays massless
+
+==============================================================================
+WHAT THIS CHANGES
+==============================================================================
+  Their eq. (81) is introduced as the 5D SU(4) result.  It is also a theorem
+  of their own SU(7): the Wilson line of their eq. (77) gives the W charge
+  1/2 and the photon charge 0, both forced by their eq. (54).  So the third
+  column of their Table 1, their eq. (82), and the constant 2.245624 in the
+  invariant K rest on a relation that is theirs and not merely inherited.

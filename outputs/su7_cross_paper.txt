@@ -1,0 +1,144 @@
+==============================================================================
+STEP 1 -- THEIR OWN TABLE 1, CHECKED AGAINST ITSELF
+==============================================================================
+  Their eq. (82):   1/R5 = 2 x 80.4 GeV / a_min.
+  So their third column is a FUNCTION of their first, with no freedom.  If the
+  two disagree beyond what two significant figures allow, one of them is a
+  misprint -- and that would change what the anchor discrepancy even is.
+
+  case   a printed 1/R5 print  1/R5 from a   a from 1/R5   consistent?
+  (1)    0.043     3.8         3.7395        0.042316      YES  a in [0.04250, 0.04288]
+  (2)    0.081     2.0         1.9852        0.080400      YES  a in [0.08050, 0.08150]
+  (3)    0.021     7.5         7.6571        0.021440      YES  a in [0.02130, 0.02150]
+  (4)    0.026     6.1         6.1846        0.026361      YES  a in [0.02615, 0.02650]
+  (5)    0.043     3.8         3.7395        0.042316      YES  a in [0.04250, 0.04288]
+
+  >> all five rows consistent: YES
+     A control that could have fired and did not.  Their a_min column is not a
+     misprint, and neither is their 1/R5 column: the anchor discrepancy is
+     about the POTENTIAL, not about a number that was typed wrong.
+
+  Note the direction, because it is not symmetric.  For the two rows with the
+  smallest a -- exactly the two that fail everything else -- the 1/R5 column is
+  the SHARPER of the two:
+     (1)    width from a: 0.00100   from 1/R5: 0.00111   intersected: 0.00038  (38% of the a box)
+     (2)    width from a: 0.00100   from 1/R5: 0.00402   intersected: 0.00100  (100% of the a box)
+     (3)    width from a: 0.00100   from 1/R5: 0.00029   intersected: 0.00020  (20% of the a box)
+     (4)    width from a: 0.00100   from 1/R5: 0.00043   intersected: 0.00035  (35% of the a box)
+     (5)    width from a: 0.00100   from 1/R5: 0.00111   intersected: 0.00038  (38% of the a box)
+
+==============================================================================
+STEP 2 -- THE ROUNDING BOX, TIGHTENED BY THEIR OWN THIRD COLUMN
+==============================================================================
+  ANCHOR_SECTION_31.md s6 asked whether their two-significant-figure rounding
+  could explain the 0.1628 residual of the per-representation fit.  Sampling
+  the a box (+-0.0005) and the m_h box (+-0.05) gave a MINIMUM of 0.1580 -- so
+  rounding could not.  That test used a box that is too GENEROUS: the true box
+  is the intersection computed above.  Re-run it there.
+
+  A NOTE ON METHOD, because the first version of this step was WRONG.
+  s6 estimated the box minimum by SAMPLING it.  The intersected box is a
+  SUBSET of the a box, so its true minimum can only be >= the wide one --
+  yet sampling both with the same number of draws returned a LOWER value
+  for the smaller box, because 400 points cover a small box better than a
+  large one.  That is a sampling artefact and it points the wrong way.
+  The minimum is therefore MINIMISED here, not sampled: bounded L-BFGS-B
+  from 40 starts per box.  [[a-control-that-cannot-fail]]
+
+  box on a_i                           true minimum verdict
+  the a column alone (s6's box)        0.1561       rounding cannot explain it
+  intersected with their 1/R5 column   0.1563       rounding cannot explain it
+
+  real residual = 0.1628
+  CONTROL: the subset's minimum must be >= the superset's.  0.1563 >= 0.1561  PASS
+  >> rounding was already excluded on the a column alone; their own third
+     column closes it by a further 0.1 %, using nothing but what they printed.
+
+==============================================================================
+STEP 3 -- THE INSTRUMENT HAS ALREADY BEEN VALIDATED, ON ANOTHER MARU PAPER
+==============================================================================
+  s6 excludes the gauge sector, the truncation, the transcription and every
+  multiplicative repair -- all of them arguments INSIDE the SU(7) computation.
+  It never says the obvious external thing: does this kind of computation
+  reproduce a published GHU vacuum AT ALL?
+
+  It does, and the run is archived in Part V of this series.
+
+     | ============================================================================================
+     | validation against AHMN arXiv:2312.08608 -- vacuum and Higgs mass matrix
+     | ============================================================================================
+     |    vacuum  ours (0.438, 0.299)   theirs (0.438, 0.299)   |delta| = (0.000, 0.000)
+     |    mass matrix, normalised to m11
+     |       ours   :   1.0000   1.2399   0.1689
+     |       AHMN   :   1.0000   1.2341  -0.1690
+     |    mass ratio  ours 1.2057   theirs 1.2046   discrepancy 0.1%
+     |    VERDICT: PASS -- the instrument may be used
+
+  Read the asymmetry, and read its scope with it:
+     Akamatsu-Hirose-Maru-Nago, arXiv:2312.08608, 6D SU(4) GHU  -> vacuum EXACT,
+        Higgs mass ratio to 0.1 %
+     Komori-Maru,               arXiv:2503.04090, 6D SU(7) GHU  -> a_min off by
+        3-108 %, content-dependent
+  Same class of computation, same dimensionality, an author in common.
+
+  SCOPE, and it must be stated or the sentence is worth nothing: these are two
+  DIFFERENT implementations -- Part V's is Schur-character based on two Wilson
+  phases, this one counts components of one.  So this does not show the SU(7)
+  assembly is right.  What it shows is that the APPROACH reproduces a published
+  6D GHU vacuum when the paper's own ingredients are enough to determine it,
+  which is exactly the possibility s6 leaves open and never closes.
+
+==============================================================================
+STEP 4 -- THE CANDIDATE s6 NEVER LISTED: LOOP ORDER
+==============================================================================
+  ANCHOR_SECTION_31.md s6 names three candidates for the missing structure -- a
+  cosine argument outside {1,2,3} pi n a, an n-dependence that is not 1/n^5, or
+  multiplets not in (69),(70).  It never names a fourth, and our own
+  GATE_POLYAKOV_TWOLOOP.md already contains it:
+
+  (a) PURE GAUGE, two loops.  Dumitru-Guo-Korthals Altes, PRD 89 (2014) 016009,
+      eq. (66):   Omega(2)/Omega(1) = -5 g^2 C2(A) / (16 pi^2),
+      'independent of the eigenvalues of the loop ... for any of the classical
+      and exceptional groups'.  A MULTIPLICATIVE, background-independent
+      rescaling -- which s4 and s6 have already excluded, because the lambda
+      the a_min column wants is not one number.
+
+  (b) WITH FERMIONS.  Guo-Du, JHEP 05 (2019) 042: 'the surprisingly simple
+      proportionality ... is in general NO LONGER TRUE when fermions are taken
+      into account', and their expressions carry Bernoulli polynomials of the
+      individual background angles AND OF THEIR PAIRWISE DIFFERENCES.
+      Our angles are the Wilson-line charges q.  A product B(C_b) B(C_d)
+      generates cosines at c_b +- c_d -- and with c in {1,2,3} that reaches
+      c in {0,...,6}.  THREE OF THOSE, c = 4, 5, 6, ARE OUTSIDE {1,2,3}.
+      That is s6's first candidate, arrived at from the physics rather than
+      from a scan.
+
+  The gate never asked the one question that decides whether it can matter:
+  HOW BIG IS IT?
+
+  g4           5 g^2 C2(A)/(16 pi^2) against the lambda the a column wants
+  0.55         0.0670         |1 - lambda| needed is 0.04-0.20 (lambda = 0.80-0.96)
+  0.63         0.0880         |1 - lambda| needed is 0.04-0.20 (lambda = 0.80-0.96)
+  0.70         0.1086         |1 - lambda| needed is 0.04-0.20 (lambda = 0.80-0.96)
+  0.80         0.1418         |1 - lambda| needed is 0.04-0.20 (lambda = 0.80-0.96)
+
+  >> the two-loop scale is 7-18 %% for g4 in 0.55-0.80, and the rescaling the
+     a_min column asks for is 4-20 %%.  THE SAME ORDER.  So loop order is not
+     ruled out by size, and it is the only named candidate that is BOTH
+     content-dependent (so a uniform lambda does not describe it) AND known
+     from the literature to be non-multiplicative once fermions are in.
+
+  WHAT THIS IS AND IS NOT.  It is a size estimate and a shape argument, both
+  from published results we have READ but NOT reproduced.  We have not computed
+  the two-loop fermionic potential for this model, and nothing in this
+  programme depends on it.  What changes is s6's exclusion list: it was
+  presented as covering the space of candidates, and it does not -- it covers
+  the one-loop space.  A referee would ask this in the first paragraph.
+
+  It also does NOT rescue their Table 1 by itself: their potential, their m_h
+  and the finiteness argument that motivates gauge-Higgs unification are all
+  one-loop statements.  If a two-loop term moved a_min by 30-100 %% their own
+  calculation would not be the thing they published.  So the honest reading is
+  a candidate of the right shape and a plausible size, NOT an explanation.
+
+wrote paper_data/su7_cross_paper.json

@@ -1,0 +1,161 @@
+==============================================================================
+STEP 0 -- CONTROL: the one-generation case must reproduce X_Q = -1/6
+==============================================================================
+  family-universal, one generation, the four cancellable channels vanish at
+  X_Q = [Fraction(-1, 6)]   (their published content; the other two cannot cancel)
+  and there  A = 3X_Q + 1/2 = 0  -- the unprotected point.  PASS
+
+==============================================================================
+STEP 0b -- the two uncancellable channels need a 28.  Not minimally: at all
+==============================================================================
+  The SM singlets are the pure index-7 components, charge m/2 for m boxes:
+     7 -> +-1/2 ,  28 -> +-1 ,  84 -> +-3/2 ,  48 -> 0 (contributes nothing)
+  Write u, w, e for the NET numbers at +-1/2, +-3/2, +-1.  The two channels
+  X.grav^2 and X^3 read
+     sum x   = u/2 + 3w/2 + e   = -1     <=>   u + 3w + 2e = -2
+     sum x^3 = u/8 + 27w/8 + e  = -1     <=>   u + 27w + 8e = -8
+  Subtracting:  24 w + 6 e = -6,  i.e.  e = -1 - 4w,  and then  u = 5w.
+
+  >> e is NEVER 0: e = 0 would need w = -1/4.  So no number of 7s and 84s,
+     at any parities, cancels the two channels.  A 28 is NECESSARY.
+     The whole solution set is the one-parameter family (u, w, e) = (5w, w, -1-4w),
+     so the net 28-number is always congruent to 3 mod 4.
+
+  brute force over all multiplicities up to 6, no algebra used:
+     with no 28 available          : 0 solutions   []
+     with the 28 available (u,w,e) : 3 solutions   [(-5, -1, 3), (0, 0, -1), (5, 1, -5)]
+     every one obeys e = -1-4w and u = 5w                            PASS
+
+  CONTROL that must fire, or the scan proves nothing -- drop ONE condition
+  (keep sum x = -1 only, still with no 28) and solutions must appear:
+     4 solutions -- the search CAN find things, so the empty set above is
+     a result and not a broken loop.                                 PASS
+
+==============================================================================
+STEP 1 -- the rungs their own tensors can host
+==============================================================================
+  A rung-k lepton doublet is the component (5,6,7^k): 2+k boxes, with the
+  index 7 repeated k times.  Its partner e_R is (6,7^{k+1}), by their eq.
+  (46).  An antisymmetric tensor cannot repeat an index.
+
+  rep    boxes  type    hosts L at rung  and e_R too?
+  7      1      fund    none             none
+  21     2      anti    [0]              [0]
+  28     2      sym     [0]              [0]
+  35     3      anti    [1]              none
+  84     3      sym     [1]              [1]
+  48     1+1b   adjoint none             none
+
+  >> a rung needs BOTH L and e_R inside one multiplet, or the charged-lepton
+     Yukawa of their eq. (46) does not close.  The 35 hosts L at rung 1 and
+     NOT e_R -- an antisymmetric tensor has no repeated index.
+  >> rungs their content can host : [0, 1]
+     rung 0 -> the 21 (their own leptons, their eq. (43)) or a 28
+     rung 1 -> the 84, and only the 84
+     rung >= 2 needs >= 4 boxes: NOT A REPRESENTATION THEIR PAPER INTRODUCES
+     in terms of the lepton charge l = (1-k)/2 :  l in ['0', '1/2']
+
+  The same counting bounds the neutrinos: an SM singlet of charge m/2 is the
+  pure component (7^m), so it needs m boxes.  Their reps give |charge| <= 3/2
+  (7, 28, 84); |charge| = 2 would need a four-box tensor they never introduce.
+
+==============================================================================
+STEP 2 -- every assignment that cancels all six channels and protects all 3
+==============================================================================
+  Brane-quark charge kept family-universal (an exact CKM matrix needs it),
+  so a = -(sum l)/9 is forced, and A_j = l_j - mean(l).
+
+  (l1,l2,l3)               X_Q      (A1,A2,A3)                     neutrinos                realisable?
+  ('1/2', '1/2', '0')      -1/9     ('1/6', '1/6', '-1/3')         ('-1', '-1', '-1/2')     YES
+  ('1/2', '1/2', '-1/2')   -1/18    ('1/3', '1/3', '-2/3')         ('-1', '-1')             no -- rung >= 2
+  ('1/2', '1/2', '-1')     0        ('1/2', '1/2', '-1')           ('-1', '-1', '1/2')      no -- rung >= 2
+  ('1/2', '0', '0')        -1/18    ('1/3', '-1/6', '-1/6')        ('-1', '-1/2', '-1/2')   YES
+  ('1/2', '0', '-1')       1/18     ('2/3', '1/6', '-5/6')         ('-1',)                  no -- rung >= 2
+  ('1/2', '-1/2', '-1/2')  1/18     ('2/3', '-1/3', '-1/3')        ('-1',)                  no -- rung >= 2
+  ('1/2', '-1/2', '-1')    1/9      ('5/6', '-1/6', '-2/3')        ('-1', '1/2')            no -- rung >= 2
+  ('1/2', '-1', '-1')      1/6      ('1', '-1/2', '-1/2')          ('-1', '1/2', '1/2')     no -- rung >= 2
+  ('0', '0', '-1/2')       1/18     ('1/6', '1/6', '-1/3')         ('-1/2', '-1/2')         no -- rung >= 2
+  ('0', '0', '-1')         1/9      ('1/3', '1/3', '-2/3')         ('-1/2',)                no -- rung >= 2
+  ('0', '-1/2', '-1/2')    1/9      ('1/3', '-1/6', '-1/6')        ('-1/2',)                no -- rung >= 2
+  ('0', '-1', '-1')        2/9      ('2/3', '-1/3', '-1/3')        ('1/2',)                 no -- rung >= 2
+  ('-1/2', '-1/2', '-1')   2/9      ('1/6', '1/6', '-1/3')         ('1/2',)                 no -- rung >= 2
+  ('-1/2', '-1', '-1')     5/18     ('1/3', '-1/6', '-1/6')        ('1/2', '1/2')           no -- rung >= 2
+
+  total assignments surviving all six channels : 14
+  (su7_family_u1.py publishes 14 by an independent implementation: PASS)
+  of those, realisable inside their own tensor content : 2
+
+  >> AND EVERY REALISABLE ONE NEEDS A SINGLET OF CHARGE -1:
+       l = ('1/2', '1/2', '0')    neutrinos ('-1', '-1', '-1/2') contains -1 : True
+       l = ('1/2', '0', '0')      neutrinos ('-1', '-1/2', '-1/2') contains -1 : True
+     charge -1 is the pure (7,7) component, i.e. a 28 -- and 28(+,+) is the
+     parity that carries it (su7_anomaly_channels.py STEP 8).  So the nu_R
+     condition of section 2, derived on their ONE-generation content, is
+     still the condition on the THREE-generation extension.
+
+==============================================================================
+STEP 2b -- and the STRICT reading loses its last assignment
+==============================================================================
+  Their bulk lattice is exactly (1/2)Z (su7_qphi.py), so the STRICT reading of
+  what may sit at a fixed point demands X_Q in (1/2)Z.  Which assignments
+  satisfy it, and are any of them realisable?
+
+  (l1,l2,l3)               X_Q       X_Q in Z/2?  realisable?
+  ('1/2', '1/2', '0')      -1/9      no           yes
+  ('1/2', '1/2', '-1')     0         yes          no -- rung >= 2
+  ('1/2', '0', '0')        -1/18     no           yes
+
+  assignments that are BOTH strict-compatible and realisable : NONE
+
+  >> the two realisable assignments sit at X_Q = -1/9 and -1/18, neither on
+     the bulk lattice; the one strict-compatible assignment needs rung 3,
+     i.e. a five-box tensor their paper never introduces.  So under the
+     STRICT reading their model has NO three-generation extension inside its
+     own content at all.  That forces the permissive reading a second time,
+     and by an argument independent of the one-generation X_Q = -1/6.
+
+==============================================================================
+STEP 3 -- the vacuum, once each realisable assignment is paid for
+==============================================================================
+  A lepton-hosting bulk multiplet is massive and leaves the potential (their
+  own sentence below eq. (79)).  Rung 0 is hosted by a 21, which is NOT in
+  Table 1, so it is free.  Rung 1 is hosted by an 84(+,+), which IS.
+
+  control -- D on their published rows must be > 0 on all five, since every
+  row of their Table 1 is a row BECAUSE it breaks electroweak symmetry:
+     {'(1)': '15/8', '(2)': '29/8', '(3)': '9/8', '(4)': '11/8', '(5)': '15/8'}
+     PASS.  And the gauge-only content must be dead: D = -27/8 < 0.  PASS
+
+  ---- assignment l = ('1/2', '1/2', '0'),  X_Q = -1/9
+       1 generation(s) at rung 1  ->  1 x 84(+,+) donated, cost 5/4
+       case   D theirs     D donated    EWSB      nu_R     survives both
+       (1)    15/8         5/8          yes       no       
+       (2)    29/8         19/8         yes       yes      **YES**
+       (3)    9/8          -1/8         LOST      yes      
+       (4)    11/8         1/8          yes       no       
+       (5)    15/8         5/8          yes       no       
+       >> rows surviving both conditions: ['(2)']
+
+  ---- assignment l = ('1/2', '0', '0'),  X_Q = -1/18
+       2 generation(s) at rung 1  ->  2 x 84(+,+) donated, cost 5/2
+       case   D theirs     D donated    EWSB      nu_R     survives both
+       (1)    15/8         -5/8         LOST      no       
+       (2)    29/8         9/8          yes       yes      **YES**
+       (3)    9/8          -11/8        LOST      yes      
+       (4)    11/8         -9/8         LOST      no       
+       (5)    15/8         -5/8         LOST      no       
+       >> rows surviving both conditions: ['(2)']
+
+==============================================================================
+WHAT THIS ADDS
+==============================================================================
+  [paper_data/su7_realisable.json written for the figure]
+  1. Their own tensors host rungs 0 and 1 only, so 12 of the 14 assignments
+     need a representation their paper never introduces.
+  2. Both realisable assignments require a singlet of charge -1, which lives
+     in the 28 and nowhere else.  The nu_R condition therefore does NOT have
+     to be imposed at one generation and the donation at three: both are
+     conditions on the same three-generation extension.
+  3. Case (2) is the unique row surviving BOTH realisable assignments.  On
+     the second one it is the unique row surviving the vacuum condition
+     alone, before the nu_R condition is imposed at all.

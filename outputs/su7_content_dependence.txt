@@ -1,0 +1,118 @@
+==============================================================================
+CONTROL -- eqs. (73)-(76) against the ACTUAL WILSON LINE, not against their
+equations.  Their eq. (77) is the identity except on indices 5 and 7, so a
+component's cosine argument is |n5-n7| pi n a and its sign is P5 P5'.
+==============================================================================
+  (counts from su7_anchor_hunt.py; every count is exactly TWICE the term
+   multiplicity -- the two states q = +-(r-1)/2.)
+
+  rep   Wilson-line count / 2              our terms()                        
+  7     {(1, -1): 1}                       {(1, -1): 1}                       OK
+  28    {(1, -1): 4, (1, 1): 1, (2, 1): 1} {(1, -1): 4, (1, 1): 1, (2, 1): 1} OK
+  48    {(1, -1): 8, (1, 1): 2, (2, 1): 1} {(1, -1): 8, (1, 1): 2, (2, 1): 1} OK
+  84    {(1, -1): 12, (1, 1): 4, (2, -1): 1, (2, 1): 4, (3, -1): 1} {(1, -1): 12, (1, 1): 4, (2, -1): 1, (2, 1): 4, (3, -1): 1} OK
+
+  >> all four representations reproduce the Wilson-line count exactly.  PASS
+     THE FERMION SECTOR IS NOT MIS-TRANSCRIBED.  Whatever is content-dependent
+     is not in our reading of eqs. (73)-(76).
+
+==============================================================================
+THE FIT -- can ANY per-representation reweighting satisfy both columns?
+==============================================================================
+  THE SYSTEM IS LINEAR, so there is no optimiser and no local minimum.
+  Write F(a) = G(a) + sum_R w_R f_R(a) with G the (exact) gauge part.  Then
+    (I)  stationarity at their a_i:   G'(a_i)  + sum_R w_R f'_R(a_i)  = 0
+    (II) their m_h via eqs.(80),(82): G''(a_i) + sum_R w_R f''_R(a_i) = c_i u,
+         c_i = (m_h,i a_i/160.8)^2 * 16 pi^6/3,   u = 1/g4^2.
+  Both are LINEAR in (w_7, w_28, w_48, w_84, u): 10 equations, 5 unknowns.
+  Each equation is normalised by the norm of its own coefficient row.
+
+  system                             w(7)     w(28)    w(48)    w(84)    g4         rank   ||res||
+  (I) stationarity only  [5 eq, 4 unk] 1.2511   1.0811   5.5902   0.8271   IMAGINARY  4      0.0064
+  (II) curvature only    [5 eq, 5 unk] 1.1101   1.0365   2.9788   1.0297   0.6146     5      0.0000
+  (I)+(II) BOTH          [10 eq, 5 unk] 0.6627   0.8253   1.1588   0.9230   0.6082     5      0.1628
+
+  per-equation residuals of the BOTH system (normalised, 0 = satisfied):
+     (1) F'       -0.0542
+     (1) F"       +0.0508
+     (2) F'       +0.0758
+     (2) F"       -0.0487
+     (3) F'       -0.0545
+     (3) F"       +0.0023
+     (4) F'       -0.0474
+     (4) F"       +0.0326
+     (5) F'       -0.0462
+     (5) F"       +0.0668
+
+  CONTROL -- same 10x5 solve with their a_min column REVERSED across rows.
+  A system with enough freedom to fit anything gives a comparable residual.
+     real ||res|| = 0.1628     scrambled ||res|| = 0.4135     ratio 2.54
+
+  A MORE GENERAL HYPOTHESIS -- per-CHANNEL instead of per-representation.
+  If the missing ingredient changes which cosines appear rather than how much
+  each rep weighs, the free parameters are the five channels (c, s) that occur
+  in eqs. (73)-(76): (1,+), (1,-), (2,+), (2,-), (3,-).  Six unknowns, ten
+  equations.  This is a DIFFERENT subspace from the per-rep one, not a
+  refinement of it.
+     channels ['c=1,s=+1', 'c=1,s=-1', 'c=2,s=+1', 'c=2,s=-1', 'c=3,s=-1']
+     weights  ['0.281', '0.134', '0.162', '0.250', '0.139']
+     g4 = 2.3867   rank 6   ||res|| = 0.0031
+     >> it FITS (residual at the numerical floor) -- and that is exactly why
+        the two numbers beside it decide the question.  Every channel weight
+        is ~0.1-0.3 where eq. (72) says 1, i.e. the fermion sector would have
+        to be ~5x weaker than their own formula; and g4 = 2.39 against the SM
+        SU(2)_L value 0.63 -- a 4D gauge coupling of alpha = g4^2/4pi = 0.45.
+        A six-parameter family that fits only at an unphysical coupling is a
+        parametrisation of the residual, not an explanation of it.
+
+==============================================================================
+IS A 5 % RESIDUAL A FAILURE?  THEIR TABLE IS QUOTED TO 2 SIGNIFICANT FIGURES
+==============================================================================
+  a_min is printed as 0.043, 0.081, 0.021, 0.026, 0.043 -- so the true value
+  is only known to +-0.0005, which is +-1.2 % at 0.043 and +-2.4 % at 0.021.
+  m_h is printed to 0.1 GeV.  Any fit therefore has a RESIDUAL FLOOR set by
+  their own rounding, and a 5 % residual must be compared against it, not
+  against zero.  Monte-Carlo: resample a_i in +-0.0005 and m_h,i in +-0.05,
+  re-solve, and build the distribution of ||res||.
+
+  per-representation  real ||res|| = 0.1628   over the rounding box: min 0.1580, median 0.1635
+                      scrambled-a ||res|| = 0.4135 (ratio 2.54)   ->  ROUNDING CANNOT EXPLAIN IT
+  per-channel         real ||res|| = 0.0031   over the rounding box: min 0.0031, median 0.0031
+                      scrambled-a ||res|| = 0.0030 (ratio 0.97)   ->  ROUNDING CANNOT EXPLAIN IT
+
+==============================================================================
+THE NON-LINEAR FIT BELOW IS SUPERSEDED -- kept only to show WHY
+==============================================================================
+  It reports w ~ 1 for the a_min-only fit, where the linear solve above gets
+  w(48) = 5.59 with a 25x smaller residual.  The linear solve is right: the
+  non-linear objective calls argmin(F), which JUMPS between local minima, so
+  its numerical Jacobian is meaningless and least_squares never leaves p0 = 1.
+  Recorded rather than deleted, because the same trap produced the earlier
+  'f(48) = 4.58, residuals still non-zero' verdict -- which the linear solve
+  now shows was the right neighbourhood reached by a wrong instrument.
+  residuals are RELATIVE: (a_min - a_theirs)/a_theirs for five rows, then
+  (m_h^pred - m_h)/m_h for five rows.  A concave row (F'' <= 0, no real m_h)
+  is charged a flat 10.  chi2 = sum of squared relative residuals.
+
+  model                        w(7)    w(28)   w(48)   w(84)   g4       dof    chi2
+  baseline  w = 1              1.000   1.000   1.000   1.000   0.6496   9      102.4
+  global lambda                0.965   0.965   0.965   0.965   0.6390   8      101.6
+  per-rep w (a_min only)       1.035   1.011   0.999   0.976   0.6300   0      1.839
+  per-rep w (BOTH columns)     1.023   1.019   0.991   0.981   0.6301   5      102.3
+  per-rep w, no (1,4) rule     1.403   0.968   1.034   0.966   0.9065   5      419.7
+
+  per-row residuals of the BOTH-columns per-rep fit:
+  case  a theirs  a fitted    rel       m_h       m_h pred    rel
+  (1)   0.0430    0.0542      0.260     126.8     133.56      0.053
+  (2)   0.0810    0.0831      0.026     125.5     126.69      0.009
+  (3)   0.0210    0.0437      1.081     125.1     nan         nan
+  (4)   0.0260    0.0463      0.782     126.4     50.95       -0.597
+  (5)   0.0430    0.0542      0.260     126.2     133.72      0.060
+
+  CONTROL THAT COULD FAIL -- fit the SAME 5 parameters to SCRAMBLED targets
+  (a_min column reversed).  If the model has enough freedom to fit anything,
+  the scrambled chi2 will be comparable to the real one.
+     real chi2 = 102.3     scrambled chi2 = 104.2     ratio 1.02
+     *** the model has too much freedom; read the fit as weak ***
+
+wrote paper_data/su7_content_dependence.json

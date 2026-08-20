@@ -1,0 +1,246 @@
+==============================================================================
+STEP 0 -- the transcribed generators, and the controls on them
+==============================================================================
+  their eq. (31):  Qem = diag('0', '0', '0', '1', '0', '-1', '0')
+  T3L  = (1/2)(n4 - n5)                             their eq. (27)
+  Y    = Qem - T3L  =  diag('0', '0', '0', '1/2', '1/2', '-1', '0')        derived
+  U(1)'= diag('0', '0', '0', '1/2', '-1/2', '1/2', '-1/2')      their eq. (79)
+
+  CONTROL 0a  Y traceless (a Cartan generator of SU(7))   : OK   (sum = 0)
+  CONTROL 0b  their eq. (41): the 7's hypercharges under SU(3)xSU(2)xU(1)_Y
+              computed from Qem - T3L : [Fraction(-1, 1), Fraction(0, 1), Fraction(1, 2)]
+              their eq. (41) states   : 0, 1/2, 0, -1
+              OK -- the derived Y reproduces their stated hypercharges
+
+  CONTROL 0c  Cartan normalisation, so no index has to be assumed:
+              sum of T3^2 over a SU(2)_L doublet = 1/2  (must be 1/2)
+              sum of T3^2 over a SU(3)_C triplet = 1/2  (must be 1/2)
+              OK -- T(fund) = 1/2 comes out, it is not put in
+
+==============================================================================
+STEP 1 -- the SURVIVING 4D chiral content, per the paper's own prescription
+==============================================================================
+  After their eq. (76): every unwanted bulk zero mode is given a Dirac mass
+  with a 4D fermion CONJUGATE to it, at a fixed point.  A conjugate localised
+  fermion cancels that zero mode in EVERY anomaly channel.  What is left is
+  the SM chiral content: brane quarks (eq. 47) + leptons from the 21 (eq. 44).
+
+  field T3C      T3L      Y        U(1)'
+  Q     +-1/2,0  +-1/2    1/6      a + T3L
+  uc    +-1/2,0  0        -2/3     -(a + 1/2)
+  dc    +-1/2,0  0        1/3      -(a - 1/2)
+  L     0        +-1/2    -1/2     1/2 + T3L
+  ec    0        0        1        0
+
+==============================================================================
+STEP 2 -- CONTROL that must NOT fire: the pure Standard-Model channels
+==============================================================================
+  SU(3)^2 x Y    = 0      at every X_Q      OK
+  SU(2)^2 x Y    = 0      at every X_Q      OK
+  Y^3            = 0      at every X_Q      OK
+  Y x grav^2     = 0      at every X_Q      OK
+  >> one full SM generation with no nu_R cancels all four.  The content and
+     the state-by-state Cartan bookkeeping are therefore sound.
+
+==============================================================================
+STEP 3 -- EVERY channel involving U(1)', as a polynomial in a = X_Q
+==============================================================================
+  channel        coefficient                  vanishes at X_Q =
+  SU(3)^2 x X    0                            every X_Q
+  SU(2)^2 x X    3/2 a + 1/4                  -1/6
+  X x grav^2     1                            NEVER
+  X^3            1                            NEVER
+  X^2 x Y        -3 a + -1/2                  -1/6
+  X x Y^2        -3/2 a + -1/4                -1/6
+
+  CONTROL 3a  SU(2)^2 x X must reproduce su7_anomaly_XQ.py's  A/2 = (3a+1/2)/2
+              verified at four values of a                          : OK
+  CONTROL 3b  SU(3)^2 x X identically zero, because X_uc + X_dc = -2X_Q IS
+              their eq. (47)
+              verified at three values of a                         : OK
+
+==============================================================================
+STEP 4 -- is there ONE X_Q that cancels them all?
+==============================================================================
+  X_Q values (searched over k/6, |k| <= 30) killing every U(1)' channel: NONE
+
+  channel by channel, the obstruction:
+     X x grav^2   = 1   -- INDEPENDENT of X_Q, and NOT zero
+     where does that 1 come from?  sum of U(1)' over each species at a = 0:
+        Q    0
+        uc   -3/2
+        dc   3/2
+        L    1
+        ec   0
+     and at general a the quark part cancels: 6a - 3(a+1/2) - 3(a-1/2) = 0.
+     verified at three values of a                                   : OK
+
+  >> the U(1)'-gravitational anomaly of the surviving content is 1, sourced
+     ENTIRELY by the lepton doublet, and no assignment of the brane quarks'
+     charge can touch it.
+
+==============================================================================
+STEP 5 -- what state would cancel it, and does their spectrum contain one?
+==============================================================================
+  A left-handed SM-singlet (a right-handed neutrino) of U(1)' charge x adds
+  x to X x grav^2, x^3 to X^3, 0 to the nonabelian channels and 0 to X x Y^2.
+  Cancelling BOTH the grav and the cubic channel at once needs:
+     X x grav^2 : 1 + x = 0            =>  x = -1
+     X^3        : (1) + x^3 = 0
+        at X_Q = 0       X^3 = 1         =>  needs x^3 = -1        i.e. x = -1  CONSISTENT
+        at X_Q = -1/6    X^3 = 1         =>  needs x^3 = -1        i.e. x = -1  CONSISTENT
+        at X_Q = 1/2     X^3 = 1         =>  needs x^3 = -1        i.e. x = -1  CONSISTENT
+
+  So a single SM singlet of U(1)' charge -1 fixes the gravitational channel;
+  whether it also fixes the cubic one is a CONDITION ON X_Q, printed above.
+
+==============================================================================
+STEP 6 -- the bookkeeping su7_signed_census.py used, side by side
+==============================================================================
+  It summed the SU(2)^2 channel over EVERY bulk zero mode, with no conjugate
+  partners.  Below: the same sum, for every channel, on the 21 at their
+  eq. (43) parities -- so the size of what the pairing removes is visible.
+
+  rep    (eta,eta')   #zero   SU3^2 X     SU2^2 X     X grav      X^3         SU2^2 Y
+  7      (+1,+1)      4       0           0           -1/2        -1/8        0
+  7      (+1,-1)      3       0           0           1/2         1/8         1/4
+  7      (-1,+1)      3       0           0           -1/2        -1/8        -1/4
+  7      (-1,-1)      4       0           0           1/2         1/8         0
+  21     (-1,+1)      12      -1/4        1/4         -1/2        5/8         -1
+  28     (+1,+1)      16      -1/4        1/4         -1/2        5/8         7/4
+  28     (+1,-1)      12      1/4         -1/4        1/2         -5/8        1
+  28     (-1,+1)      12      -1/4        1/4         -1/2        5/8         -1
+  28     (-1,-1)      16      1/4         -1/4        1/2         -5/8        -7/4
+  48     (+1,+1)      24      0           0           0           0           0
+  48     (+1,-1)      24      0           0           0           0           0
+  48     (-1,+1)      24      0           0           0           0           0
+  48     (-1,-1)      24      0           0           0           0           0
+  84     (+1,+1)      44      -3/4        -1/4        -5/2        -35/8       5
+  84     (+1,-1)      40      3/4         1/4         5/2         35/8        29/4
+  84     (-1,+1)      40      -3/4        -1/4        -5/2        -35/8       -29/4
+  84     (-1,-1)      44      3/4         1/4         5/2         35/8        -5
+
+  CONTROL 6a  the 21 at their eq. (43) parities must give SU2^2 X = 1/4,
+              the value su7_signed_census.py reports
+              computed: 1/4                                          : OK
+
+  >> and the other channels of that SAME multiplet are NOT zero, so the
+     census's single-channel condition was never the whole condition even on
+     its own bookkeeping.
+
+==============================================================================
+STEP 7 -- WHAT U(1)' THEN IS, and why that answers their question structurally
+==============================================================================
+  Three channels -- SU(2)^2 X, X^2 Y, X Y^2 -- independently force X_Q = -1/6,
+  and the remaining two force one SM singlet of U(1)' charge -1.  Write out the
+  whole assignment and compare it with T3L, Y and B-L:
+
+  field T3L       Y         B-L       U(1)'     T3L + Y - (B-L)
+  Q     1/2       1/6       1/3       1/3       1/3       
+  Q     -1/2      1/6       1/3       -2/3      -2/3      
+  uc    0         -2/3      -1/3      -1/3      -1/3      
+  dc    0         1/3       -1/3      2/3       2/3       
+  L     1/2       -1/2      -1        1         1         
+  L     -1/2      -1/2      -1        0         0         
+  ec    0         1         1         0         0         
+  nc    0         0         1         -1        -1        
+
+  >> U(1)'  =  T3L + Y - (B-L)   on every field, exactly, with no freedom left.
+     The anomaly conditions do not merely PICK a number; they identify the
+     leftover U(1) as a combination of T3L, Y and B-L and nothing else.
+
+  And the four dimension-6 |dB|=1 operators are invariant under all three.
+  Computed, not asserted -- their B-L and Y and T3L, from the charges above:
+  operator       Y        B-L      U(1)'    verdict
+  QQQL           0        0        0        ALLOWED
+  Q uc* dc* L    0        0        0        ALLOWED
+  uc uc dc ec    0        0        0        ALLOWED
+  QQ uc* ec*     0        0        0        ALLOWED
+
+  >> all four conserve B-L (textbook: the SM dimension-6 baryon-number
+     operators are B-L neutral), and all four are Y-neutral, so ANY U(1) in
+     span{T3L, Y, B-L} is blind to them.
+
+  >> THE ANSWER TO KOMORI-MARU'S OPEN QUESTION IS THEREFORE STRUCTURAL, not
+     a coincidence at one point of a free parameter: their leftover U(1)'
+     cannot forbid proton decay, because anomaly cancellation forces it into
+     the span of T3L, Y and B-L, and the dangerous operators are neutral
+     under every member of that span.
+
+==============================================================================
+STEP 8 -- does their own spectrum contain the SM singlet of charge -1?
+==============================================================================
+  Requirement: a 4D left-handed Weyl, colour singlet, SU(2)_L singlet, Y = 0,
+  U(1)' = -1.  That is a RIGHT-HANDED NEUTRINO.  The paper mentions none.
+  Search every rep it uses, at every parity choice, over its zero modes:
+
+  The condition is on the KEPT set, not on one state: with signed charges
+  {x_i} of the SM-singlet zero modes one chooses NOT to pair away,
+     sum x_i = -1   (X x grav^2)     and     sum x_i^3 = -1   (X^3).
+  Two singlets of charge -1/2 satisfy the first and NOT the second, so the
+  two channels are independent conditions and the search must be over subsets.
+
+  rep    (eta,eta')   component              chir   signed U(1)'
+  7      (+1,-1)      (0, 0, 0, 0, 0, 0, 1)  R      1/2
+  7      (-1,+1)      (0, 0, 0, 0, 0, 0, 1)  L      -1/2
+  28     (+1,+1)      (0, 0, 0, 0, 0, 0, 2)  L      -1
+  28     (-1,-1)      (0, 0, 0, 0, 0, 0, 2)  R      1
+  84     (+1,-1)      (0, 0, 0, 0, 0, 0, 3)  R      3/2
+  84     (-1,+1)      (0, 0, 0, 0, 0, 0, 3)  L      -3/2
+
+  >> only the pure index-7 components are SM singlets with Y = 0, so the
+     available charges are exactly  7 -> -+1/2,  28 -> -+1,  84 -> -+3/2,
+     and the 48's is 0.  Nothing else in their reps can do this job.
+
+  THEIR TABLE 1, with both conditions imposed on the kept singlets
+  (parities as printed in their table caption, (eta_R, eta'_R)):
+
+  case  1/R5      singlet charges available      solvable?
+  (1)   3.8       []                             NO -- no subset works
+  (2)   2.0       [Fraction(-1, 1)]              YES  keep [Fraction(-1, 1)]
+  (3)   7.5       [Fraction(-1, 1)]              YES  keep [Fraction(-1, 1)]
+  (4)   6.1       [Fraction(1, 2)]               NO -- no subset works
+  (5)   3.8       [Fraction(1, 2)]               NO -- no subset works
+
+  >> the two rows that cannot do it are exactly the two whose only singlets
+     come from a 7 (charge -+1/2) or an 84 (-+3/2).  A charge -1 singlet needs
+     a 28, and the 28 appears in cases (1), (2) and (3).
+
+  >> the state is in the spectrum as an UNWANTED zero mode -- exactly the
+     class the paper's sentence pairs away with a conjugate brane fermion.
+     Pairing it away is what leaves the anomaly.  KEEPING one such state is
+     not optional: it is what makes the model consistent, and it is a
+     RIGHT-HANDED NEUTRINO, which the paper does not discuss.
+
+  SCOPE: the paper writes one generation explicitly.  For N generations the
+  lepton doublets give X grav^2 = N and X^3 = N, so N singlets of charge -1
+  are needed -- the same statement, N times, and the same reps supply it.
+
+==============================================================================
+WHAT IS AND IS NOT ESTABLISHED
+==============================================================================
+  ESTABLISHED, and it is arithmetic on their own equations:
+    - with the paper's own pairing prescription the surviving 4D chiral
+      content is the SM one, and then NO value of X_Q cancels every U(1)'
+      anomaly channel; the gravitational one is X_Q-independent and equal to 1.
+    - so su7_signed_census.py's chain (Table 1 -> X_Q -> proton exponent)
+      does not survive the pairing sentence: S(added) is cancelled by the
+      conjugate brane fermions the paper introduces.
+    - the three channels that CAN cancel all force the same X_Q = -1/6, which
+      is exactly A = 0: the point at which the U(1)' stops protecting.
+    - at that point U(1)' = T3L + Y - (B-L) identically, and the four
+      dimension-6 operators are neutral under it for a structural reason.
+    - the two channels that cannot cancel demand one SM singlet of charge -1
+      per generation, i.e. a right-handed neutrino, which their spectrum
+      contains and their prescription pairs away.
+  NOT ESTABLISHED:
+    - that the localised anomaly must cancel on localised matter: the gate
+      (von Gersdorff-Quiros) says mixed U(1) anomalies are the evadable class,
+      and a Green-Schwarz two-form remains available for all of them.
+    - WHERE each conjugate fermion sits: the paper says 'on the fixed points'
+      without saying which, and a localised (as opposed to integrated) anomaly
+      is fixed-point by fixed-point.  What is computed here is the INTEGRATED
+      4D anomaly, which is the one that cannot depend on that choice.
+    - anything about coefficients, <phi>, or a lifetime.
+
+DONE

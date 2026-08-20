@@ -1,0 +1,106 @@
+==============================================================================
+A -- THE LADDER, AND WHAT A PARTNER MUST CARRY
+==============================================================================
+  rung k extra(L)       extra(e_R)     boxes L        boxes e_R
+  0      1/2            0              2              2
+  1      0              -1/2           3              3
+  2      -1/2           -1             4              4
+  3      -1             -3/2           5              5
+
+  <A_5> is index 5 -> index 7, so it moves a component by
+     dY = Y_7 - Y_5 = -1/2     d(extra) = e_7 - e_5 = -1/2
+  which is exactly (Y, extra)(e_R) - (Y, extra)(L). The Yukawa condition and
+  the charge condition are THE SAME CONDITION -- not two.
+
+==============================================================================
+B -- WHAT THE 48 ACTUALLY CARRIES, COUNTED HONESTLY
+==============================================================================
+  A lepton doublet, all-left-handed, is an SU(3) singlet SU(2) doublet of
+  Y = -1/2. Y = +1/2 is its CONJUGATE, which is the same physical state in a
+  real representation and not a second generation.
+
+  (7,4bar)  Y = -1/2  extra = -1/2  rung = 2    lepton doublet
+  (7,5bar)  Y = -1/2  extra = -1/2  rung = 2    lepton doublet
+  (4,7bar)  Y = 1/2   extra = 1/2   rung = 0    its conjugate
+  (5,7bar)  Y = 1/2   extra = 1/2   rung = 0    its conjugate
+
+  >> 2 states of Y = -1/2 and 2 conjugates. So the 48 carries ONE lepton
+     doublet -- an SU(2) pair -- at rung 2. NOT four doublets at two rungs,
+     which is how su7_can_the_adjoint_host.py reported it and how the paper
+     now repeats it: the rung-0 pair IS the rung-2 pair conjugated, and a
+     conjugate is not a second generation.
+
+==============================================================================
+C -- ITS PARTNER: NOWHERE IN THEIR BULK CONTENT
+==============================================================================
+  the partner must be an SU(3) x SU(2) singlet with Y = -1, extra = -1
+
+  in the 48                      : ABSENT
+  as a bulk tensor it is (6,7^3), i.e. 4 boxes -- and their content stops
+  at three. That IS the four-box exclusion, and it applies to the PARTNER.
+
+==============================================================================
+C2 -- THE LAST THING THAT COULD KILL THIS: DOES THE DOUBLET EVEN SURVIVE?
+==============================================================================
+  A component of a bulk multiplet gives a 4D zero mode only if its orbifold
+  parity matches. su7_anomaly_channels.py's rule, from their eqs. (37)-(40):
+  a weight survives in a multiplet of parities (eta, eta') iff
+  P5 P5' of that component equals eta*eta'. If the 48's doublet fails this in
+  a 48(+,+), there is no generation to host and the whole question dies here.
+
+  (7,4bar)  P5P5' = +1   survives in a 48(+,+) (eta*eta' = +1): YES
+  (7,5bar)  P5P5' = +1   survives in a 48(+,+) (eta*eta' = +1): YES
+
+  >> 2 of 2 survive. The doublet is NOT projected out.
+     (Control that had to be able to fire: of the 48's ten states at
+     |q| = 1/2, only two carry P5P5' = +1 -- su7_gauge_from_group.py's
+     table -- so this test rejects 8 of 10 and is not vacuous.)
+
+==============================================================================
+D -- SO PUT IT ON A BRANE. WHAT DOES THAT COST THE POTENTIAL?
+==============================================================================
+  multiplet  D lost when it is donated to host a generation
+  7(+,+)     -3/4
+  28(+,+)    2
+  48(+,+)    0
+  84(+,+)    5/4
+
+  >> the 48 is the ONLY one that is free. A generation hosted in a 48 with a
+     brane partner takes NOTHING out of the Higgs potential.
+
+  case   D published      after an 84      after a 48       has a 48?
+  (1)    15/8             5/8              15/8             no
+  (2)    29/8             19/8             29/8             no
+  (3)    9/8              -1/8             9/8              yes, 3
+  (4)    11/8             1/8              11/8             yes, 2
+  (5)    15/8             5/8              15/8             no
+
+==============================================================================
+E -- THE CONSEQUENCE, STATED BEFORE IT IS ARGUED AWAY
+==============================================================================
+  rows surviving the vacuum condition after donating an 84 : (1) (2) (4) (5)
+  rows that COULD instead donate a 48, and survive at no cost: (3) (4)
+
+  The nu_R condition admits only rows (2) and (3) (sect. 3). Intersecting:
+    with the 84 route  : (2)   <- the paper's headline
+    with the 48 route  : (3)
+
+  Case (3) is the row with three 48s. If the 48 route is open it pays
+  nothing, keeps 9/8, and survives -- and the headline is false.
+
+  What is NOT an obstruction, checked rather than assumed:
+   - anomalies. The assignment that needs rung 2 is l = (1/2, 1/2, -1/2) at
+     X_Q = -1/18, and it is one of the FOURTEEN that cancel all six channels
+     (su7_family_u1.py). It was rejected by sect. 4 on rungs alone.
+   - the charge lattice. extra = -1 is on the bulk lattice (1/2)Z anyway, so
+     not even the permissive reading is needed.
+   - the doublet. It is there, in the 48, with the right Y and the right
+     extra, as section B shows.
+
+  So the exclusion of rung 2 does NOT rest on anomalies, charges or content.
+  It rests on the partner having to be reachable by <A_5>, i.e. on the Yukawa
+  being GAUGE-GENERATED. A brane partner is not reachable by <A_5>: its
+  Yukawa would be a brane-localised coupling with a free coefficient. That is
+  a real price -- it is the calculability that gauge-Higgs unification exists
+  to buy, and Maru's own review calls this obstruction generic -- but it is a
+  price, not a prohibition, and this paper cannot claim otherwise.

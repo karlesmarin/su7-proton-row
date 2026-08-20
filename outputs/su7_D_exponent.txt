@@ -1,0 +1,77 @@
+==============================================================================
+THE EXPONENT, AND WHAT IT DOES TO THE SELECTION
+==============================================================================
+  potential ~ 1/n^P  =>  V''(0) ~ 1/n^(P-2)  =>  w = eta(P-2)/zeta(P-2)
+
+  P    w        cost      D of the five rows after donating one 84       survivors
+  4    1/2      15/2      79/4  85/4  49/4  63/4  75/4                   (1) (2) (3) (4) (5)
+  5    3/4      5/4       5/8  19/8  -1/8  1/8  5/8                      (1) (2) (4) (5)
+  6    7/8      -15/8     -143/16  -113/16  -101/16  -123/16  -135/16    NONE
+  7    15/16    -55/16    -439/32  -377/32  -301/32  -371/32  -415/32    NONE
+  8    31/32    -135/32   -1031/64  -905/64  -701/64  -867/64  -975/64   NONE
+  9    63/64    -295/64   -2215/128  -1961/128  -1501/128  -1859/128  -2095/128 NONE
+
+  the published reading is P = 5 (w = 3/4), the first row above with p = 3.
+
+==============================================================================
+BOTH CONDITIONS, NOT ONE -- AND THE WINDOW IN w
+==============================================================================
+  The paper's claim is not 'case (2) is the only row with D > 0'. It is that
+  case (2) is the only row satisfying BOTH necessary conditions. The nu_R
+  condition of the anomaly section admits only rows (2) and (3), and carries
+  no w at all: it is anomalies and tensor content. So the question is
+  narrower than the sweep above --
+
+      for which w does the vacuum condition keep (2) and kill (3)?
+
+  D_i(w) - cost(w) is LINEAR in w, so this is two inequalities and the answer
+  is an interval with exact rational endpoints.
+
+  case (2) after donating:  D = 59 - 151/2 w
+  case (3) after donating:  D = 37 - 99/2 w
+
+  (2) survives while w < 118/151
+  (3) is killed once w >= 74/99
+
+  >> the headline holds exactly on   w in [74/99, 118/151)   =   [0.7475, 0.7815)
+     the published reading sits at w = 3/4 = 0.7500, which is inside: True
+     margin to the lower edge 0.0025, to the upper edge 0.0315
+
+  And now the exponents, read off that interval rather than re-swept:
+     P = 4   w = 1/2     case (3) also survives
+     P = 5   w = 3/4     HEADLINE HOLDS
+     P = 6   w = 7/8     no row survives at all
+     P = 7   w = 15/16   no row survives at all
+     P = 8   w = 31/32   no row survives at all
+
+==============================================================================
+VERDICT
+==============================================================================
+  1. The selection is NOT exponent-free. It holds on w in [74/99, 118/151), and of
+     the admissible exponents only P = 5 lands inside: at P = 4 case (3)
+     survives too and the row is not unique; at P >= 6 NO row survives at all
+     and the minimal extension dies outright. So their eq. (67) -- which we
+     prove rather than assume, the brace closing to 3k/4(pi n)^5 with Sage
+     simplifying the difference to exactly 0 -- is load-bearing for the
+     SELECTION and not only for the instrument.
+     Section 7 files that proof under 'what the anchor failure cannot be'.
+     It belongs in section 5's dependency list too, and it is not there.
+
+  2. And the tight-looking lower margin of 0.0025 is NOT a fragility, which is
+     worth stating because it would be easy to sell it as one. w is not a
+     free parameter that could drift into the gap: w = 1 - 2^(1-p) takes only
+     the values 1/2, 3/4, 7/8, ..., and the nearest admissible neighbours of
+     3/4 are 1/2 below and 7/8 above -- both far outside the window.
+     The window is narrow in a continuum that the
+     physics does not live in. What CAN move the conclusion is a change to
+     (A, B) -- new terms, two loops -- and that is the repair wedge of
+     section 8, which is measured there and is a different quantity.
+
+  So: one genuine gap in the ledger, and one alarming-looking number that is
+  an artifact of sweeping a quantised constant continuously. Both had to be
+  computed to tell them apart.
+
+  What this does NOT rescue: alpha_min itself. The exponent is exactly the
+  kind of structural difference that could produce a row-dependent ratio,
+  and this script does not test that -- it tests only the SELECTION. The
+  anchor question stays open and stays where section 7 leaves it.

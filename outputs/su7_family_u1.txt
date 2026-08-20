@@ -1,0 +1,412 @@
+==============================================================================
+STEP 0 -- the ladder: what U(1)' charge can an SM lepton doublet have?
+==============================================================================
+  A component of any SU(7) tensor is fixed by its index content n.  Demand
+  it be a colour singlet, an SU(2)_L doublet member, and Y = -1/2:
+     colour indices 1-3 : none;   exactly one index in {4,5};   Y = -1/2.
+  Y per index is (0,0,0,1/2,1/2,-1,0), so the non-weak part must carry
+  Y = -1, i.e. exactly one index 6 and any number k of index 7.
+
+  boxes  content of L             T3L        Y          extra(L)
+  2      (5,6)                    -1/2       -1/2       1/2
+  3      (5,6,7)                  -1/2       -1/2       0
+  4      (5,6,7,7)                -1/2       -1/2       -1/2
+  5      (5,6,7,7,7)              -1/2       -1/2       -1
+  6      (5,6,7,7,7,7)            -1/2       -1/2       -3/2
+
+  >> extra(L) = (1 - k)/2 :  a LADDER, spaced by 1/2, indexed by how many
+     index-7 boxes the multiplet carries.  It is NOT a free parameter and it
+     is NOT unique -- which is exactly what family dependence needs.
+
+  CONTROL  k = 0 must reproduce their own assignment, L = 21^{56}
+           extra(L) = 1/2                                          : OK
+
+==============================================================================
+STEP 1 -- the Yukawa fixes e^c, and it closes for EVERY rung
+==============================================================================
+  Their eq. (46): <A5> connects index 5 <-> index 7.  So e_R is L with the
+  index 5 replaced by a 7, inside the SAME multiplet.
+
+  boxes  L                  extra(L)     e_R                extra(e_R)   extra(L)+extra(e^c)
+  2      (5,6)              1/2          (6,7)              0            1/2
+  3      (5,6,7)            0            (6,7,7)            -1/2         1/2
+  4      (5,6,7,7)          -1/2         (6,7,7,7)          -1           1/2
+  5      (5,6,7,7,7)        -1           (6,7,7,7,7)        -3/2         1/2
+
+  >> extra(L) + extra(e^c) = 1/2 on EVERY rung -- the Higgs's own extra
+     charge.  The charged-lepton Yukawa is automatic at every rung, because
+     it comes from the 6D gauge coupling inside one multiplet.
+     e_R is a singlet of the right Y at every rung: verified above.
+
+==============================================================================
+STEP 2 -- THE IDENTITY that decides the whole question
+==============================================================================
+  The proton-operator charge of the generation with lepton (a_j, l_j) is
+  A_j = 3 a_j + l_j  (su7_XQ.py; and Theorem 2 of halves_theorem.py makes the
+  e^c half exactly -A_j).  Compute the SU(2)_L anomaly of N generations:
+
+  content                                    SU(2)^2 X  vs  (1/2) sum A_j
+  [('0', '1/2')]                             1/4          1/4          OK
+  [('0', '1/2'), ('1/3', '0')]               3/4          3/4          OK
+  [('-1/9', '1/2'), ('-1/9', '1/2'), ('-1/9', '0')] 0            0            OK
+
+  >>  SU(2)^2 X  =  (1/2) sum_j A_j   exactly.
+
+  ANOMALY CANCELLATION  demands   sum_j A_j = 0.
+  PROTON PROTECTION     demands   A_j != 0  for every j.
+
+  For N = 1 those are the SAME equation, and that is the whole content of
+  SU7_ANOMALY_CHANNELS.md: A = 0 is forced, the proton is unprotected.
+  For N >= 2 they are NOT: a sum can vanish with no term vanishing.
+  >> THIS IS arXiv:1001.0768's 'sum x_i = 3 with x_i != 1', in their
+     variables.  The escape is real, and it is only open for N > 1.
+
+==============================================================================
+STEP 3 -- but the quark charges are not free either: CKM
+==============================================================================
+  A family-dependent extra charge on the brane quarks forbids the OFF-
+  DIAGONAL quark Yukawas (their eq. 47 is diagonal in flavour), so the CKM
+  matrix would have to come from <phi> insertions.  Two regimes:
+
+   (i)  a_j UNIVERSAL  -- exact CKM at renormalisable level.  Then
+        sum_j A_j = 3 N a + sum_j l_j = 0  =>  a = -(sum l)/(3N), and
+        A_j = l_j - lbar   with  lbar the MEAN of the l_j.
+        Protection  <=>  no l_j equals the mean.
+   (ii) a_j FAMILY-DEPENDENT -- more freedom, CKM suppressed by <phi>/M.
+
+  Regime (i), N = 3, over the rungs l in {1/2, 0, -1/2, -1}:
+
+  (l1,l2,l3)             a          (A1,A2,A3)                     all != 0?
+  ('1/2', '1/2', '1/2')  -1/6       ('0', '0', '0')                no
+  ('1/2', '1/2', '0')    -1/9       ('1/6', '1/6', '-1/3')         YES
+  ('1/2', '1/2', '-1/2') -1/18      ('1/3', '1/3', '-2/3')         YES
+  ('1/2', '1/2', '-1')   0          ('1/2', '1/2', '-1')           YES
+  ('1/2', '0', '0')      -1/18      ('1/3', '-1/6', '-1/6')        YES
+  ('1/2', '0', '-1/2')   0          ('1/2', '0', '-1/2')           no
+  ('1/2', '0', '-1')     1/18       ('2/3', '1/6', '-5/6')         YES
+  ('1/2', '-1/2', '-1/2') 1/18       ('2/3', '-1/3', '-1/3')        YES
+  ('1/2', '-1/2', '-1')  1/9        ('5/6', '-1/6', '-2/3')        YES
+  ('1/2', '-1', '-1')    1/6        ('1', '-1/2', '-1/2')          YES
+  ('0', '0', '0')        0          ('0', '0', '0')                no
+  ('0', '0', '-1/2')     1/18       ('1/6', '1/6', '-1/3')         YES
+  ('0', '0', '-1')       1/9        ('1/3', '1/3', '-2/3')         YES
+  ('0', '-1/2', '-1/2')  1/9        ('1/3', '-1/6', '-1/6')        YES
+  ('0', '-1/2', '-1')    1/6        ('1/2', '0', '-1/2')           no
+  ('0', '-1', '-1')      2/9        ('2/3', '-1/3', '-1/3')        YES
+  ('-1/2', '-1/2', '-1/2') 1/6        ('0', '0', '0')                no
+  ('-1/2', '-1/2', '-1') 2/9        ('1/6', '1/6', '-1/3')         YES
+  ('-1/2', '-1', '-1')   5/18       ('1/3', '-1/6', '-1/6')        YES
+  ('-1', '-1', '-1')     1/3        ('0', '0', '0')                no
+
+  >> 14 of 20 rung assignments protect every generation.
+     The ones that fail are exactly those where some l_j is the mean --
+     in particular ALL-EQUAL rungs, which is the family-universal case.
+
+==============================================================================
+STEP 4 -- now impose EVERY anomaly channel, not just the SU(2) one
+==============================================================================
+  The other channels are not linear in A_j, so surviving STEP 3 is necessary
+  and not sufficient.  Add right-handed neutrinos: the SM singlets with Y = 0
+  are the pure index-7 components, extra = -m/2, so their available charges
+  are (+-1/2, +-1, +-3/2, ...) -- the same ladder, signed by chirality.
+
+  searching: rungs (l1,l2,l3) x universal a x up to 3 neutrinos from ['-2', '-3/2', '-1', '-1/2', '1/2', '1', '3/2', '2']
+
+  (l1,l2,l3)             a         (A1,A2,A3)                   neutrinos             
+  ('1/2', '1/2', '0')    -1/9      ('1/6', '1/6', '-1/3')       ('-1', '-1', '-1/2')  
+  ('1/2', '1/2', '-1/2') -1/18     ('1/3', '1/3', '-2/3')       ('-1', '-1')          
+  ('1/2', '1/2', '-1')   0         ('1/2', '1/2', '-1')         ('-1', '-1', '1/2')   
+  ('1/2', '0', '0')      -1/18     ('1/3', '-1/6', '-1/6')      ('-1', '-1/2', '-1/2')
+  ('1/2', '0', '-1')     1/18      ('2/3', '1/6', '-5/6')       ('-1',)               
+  ('1/2', '-1/2', '-1/2') 1/18      ('2/3', '-1/3', '-1/3')      ('-1',)               
+  ('1/2', '-1/2', '-1')  1/9       ('5/6', '-1/6', '-2/3')      ('-1', '1/2')         
+  ('1/2', '-1', '-1')    1/6       ('1', '-1/2', '-1/2')        ('-1', '1/2', '1/2')  
+  ('0', '0', '-1/2')     1/18      ('1/6', '1/6', '-1/3')       ('-1/2', '-1/2')      
+  ('0', '0', '-1')       1/9       ('1/3', '1/3', '-2/3')       ('-1/2',)             
+  ('0', '-1/2', '-1/2')  1/9       ('1/3', '-1/6', '-1/6')      ('-1/2',)             
+  ('0', '-1', '-1')      2/9       ('2/3', '-1/3', '-1/3')      ('1/2',)              
+  ('-1/2', '-1/2', '-1') 2/9       ('1/6', '1/6', '-1/3')       ('1/2',)              
+  ('-1/2', '-1', '-1')   5/18      ('1/3', '-1/6', '-1/6')      ('1/2', '1/2')        
+
+  total solutions found (rung set, a) : 14
+
+==============================================================================
+STEP 5 -- CONTROL: the family-universal case must come back UNPROTECTED
+==============================================================================
+  Set all three rungs to their own value l = 1/2 (three copies of the 21):
+     a = -1/6,  A_j = ['0', '0', '0']
+     >> every A_j = 0.  The proton is unprotected, which is exactly
+        SU7_ANOMALY_CHANNELS.md's result, recovered here as a special case.
+     CONTROL PASSES -- the new machinery reproduces the old verdict.
+  And a = -1/6, the value that note derived:  True
+
+==============================================================================
+STEP 6 -- can their construction actually put a generation on rung k >= 1?
+==============================================================================
+  Rung k needs L at index content (4or5, 6, 7^k), i.e. a multiplet with
+  2 + k boxes.  Their reps: 7 (1 box), 21 and 28 (2), 84 (3), 48 (adjoint).
+  Which of them CONTAIN such a component at all?
+
+  rep    boxes    type     rungs it can host
+  7      1        fund     none
+  21     2        anti     [0]
+  28     2        sym      [0]
+  84     3        sym      [1]
+  35     3        anti     [1]
+  112    4        mixed    [2]
+
+  >> rung 0 needs 2 boxes  -> the 21 (antisymmetric: indices 5,6 distinct)
+     rung 1 needs 3 boxes  -> the 84 (symmetric, indices 5,6,7 distinct, so
+                             the ANTIsymmetric 35 hosts it too)
+     rung 2 needs 4 boxes  -> a rep they do not introduce
+
+  >> so the assignment closest to their own model is  l = (1/2, 1/2, 0):
+     TWO generations in 21s and ONE in an 84 or a 35.  The 84 is already in
+     every row of their Table 1, introduced for the potential.
+     a = -1/9, A_j = ['1/6', '1/6', '-1/3']  -- all non-zero
+     proton suppression per generation, |A_j| in units of <phi>/M:
+        generation 1 : |A| = 1/6
+        generation 2 : |A| = 1/6
+        generation 3 : |A| = 1/3
+
+==============================================================================
+STEP 7 -- does the orbifold KEEP a rung-1 lepton generation?  (the real gap)
+==============================================================================
+  Their eqs. (37)-(40), transcribed in su7_signed_census.py, give:
+     zero mode  <=>  p5(n) p5'(n) = eta eta' ,  4D chirality  g = -eta p5(n)
+  Demand of a candidate rep: L = (5,6,7^k) is a zero mode and LEFT-handed,
+  and e_R = (6,7^{k+1}) is a zero mode and RIGHT-handed.  Nothing else fixed.
+
+  rep    rung   (eta,eta')   L = (5,6,7^k)          e_R        verdict
+  21     0      (+1,+1)      projected out          out        no
+  21     0      (+1,-1)      R                      L          no
+  21     0      (-1,+1)      L                      R          **HOSTS IT**
+  21     0      (-1,-1)      projected out          out        no
+  28     0      (+1,+1)      projected out          out        no
+  28     0      (+1,-1)      R                      L          no
+  28     0      (-1,+1)      L                      R          **HOSTS IT**
+  28     0      (-1,-1)      projected out          out        no
+  35     1      -            -                      -          e_R needs a repeated index: NOT in an antisymmetric rep
+  84     1      (+1,+1)      L                      R          **HOSTS IT**
+  84     1      (+1,-1)      projected out          out        no
+  84     1      (-1,+1)      projected out          out        no
+  84     1      (-1,-1)      R                      L          no
+
+  >> rung 0 hosted by : [('21', -1, 1), ('28', -1, 1)]
+  >> rung 1 hosted by : [('84', 1, 1)]
+
+  CONTROL  rung 0 must come out at the 21 with eta = -1, eta' = +1 --
+           Komori-Maru's own eq. (43), which nothing here put in
+           it does                                                : OK
+
+  >> THE 35 IS RULED OUT for rung 1 and the reason is one line: e_R needs
+     the index content (6,7,7), a repeated index, which an ANTIsymmetric
+     tensor does not have.  The charged lepton, not the doublet, decides it.
+  >> the 84 hosts rung 1, and at (eta,eta') = (+1,+1).
+
+  AND IT IS ALREADY THERE.  Their Table 1, rows containing an 84(+,+):
+     (1)   4 x 84(+,+)
+     (2)   4 x 84(+,+)
+     (3)   2 x 84(+,+)
+     (4)   3 x 84(+,+)
+     (5)   4 x 84(+,+)
+
+  >> every row of their Table 1 already contains 84(+,+) multiplets,
+     introduced for the Higgs potential and for nothing else.  The multiplet
+     that would host a rung-1 lepton generation is not a new ingredient.
+
+  CONTROL  an SU(2)_L doublet is only a doublet if BOTH components survive
+           with the SAME chirality.  Check the upper component (4,6,7^k)
+           against the lower one used above, on every hosting rep:
+           21   rung 0 (-1,+1):  upper L / lower L   OK
+           28   rung 0 (-1,+1):  upper L / lower L   OK
+           84   rung 1 (+1,+1):  upper L / lower L   OK
+           the doublet is never split -- indices 4 and 5 carry identical
+           parities in both P5 and P5', so this could not have failed here;
+           it is recorded because a rep where it DID fail would be excluded.
+
+==============================================================================
+STEP 8 -- and what the neutrinos then cost, rep by rep
+==============================================================================
+  From su7_anomaly_channels.py the signed SM-singlet charges available are
+  fixed by (rep, parity).  Map each STEP 4 solution onto them:
+
+  (l1,l2,l3)             a         neutrinos                  as (rep,parity)
+  ('1/2', '1/2', '0')    -1/9      ('-1', '-1', '-1/2')       28(+,+) + 28(+,+) + 7(-,+)
+  ('1/2', '1/2', '-1/2') -1/18     ('-1', '-1')               28(+,+) + 28(+,+)
+  ('1/2', '1/2', '-1')   0         ('-1', '-1', '1/2')        28(+,+) + 28(+,+) + 7(+,-)
+  ('1/2', '0', '0')      -1/18     ('-1', '-1/2', '-1/2')     28(+,+) + 7(-,+) + 7(-,+)
+  ('1/2', '0', '-1')     1/18      ('-1',)                    28(+,+)
+  ('1/2', '0', '-1')     1/18      ('-3/2', '-1', '3/2')      84(-,+) + 28(+,+) + 84(+,-)
+  ('1/2', '0', '-1')     1/18      ('-1', '-1', '1')          28(+,+) + 28(+,+) + 28(-,-)
+  ('1/2', '0', '-1')     1/18      ('-1', '-1/2', '1/2')      28(+,+) + 7(-,+) + 7(+,-)
+  ('1/2', '-1/2', '-1/2') 1/18      ('-1',)                    28(+,+)
+  ('1/2', '-1/2', '-1/2') 1/18      ('-3/2', '-1', '3/2')      84(-,+) + 28(+,+) + 84(+,-)
+  ('1/2', '-1/2', '-1/2') 1/18      ('-1', '-1', '1')          28(+,+) + 28(+,+) + 28(-,-)
+  ('1/2', '-1/2', '-1/2') 1/18      ('-1', '-1/2', '1/2')      28(+,+) + 7(-,+) + 7(+,-)
+  ('1/2', '-1/2', '-1')  1/9       ('-1', '1/2')              28(+,+) + 7(+,-)
+  ('1/2', '-1', '-1')    1/6       ('-1', '1/2', '1/2')       28(+,+) + 7(+,-) + 7(+,-)
+  ('0', '0', '-1/2')     1/18      ('-1/2', '-1/2')           7(-,+) + 7(-,+)
+  ('0', '0', '-1')       1/9       ('-1/2',)                  7(-,+)
+  ('0', '0', '-1')       1/9       ('-3/2', '-1/2', '3/2')    84(-,+) + 7(-,+) + 84(+,-)
+  ('0', '0', '-1')       1/9       ('-1', '-1/2', '1')        28(+,+) + 7(-,+) + 28(-,-)
+  ('0', '0', '-1')       1/9       ('-1/2', '-1/2', '1/2')    7(-,+) + 7(-,+) + 7(+,-)
+  ('0', '-1/2', '-1/2')  1/9       ('-1/2',)                  7(-,+)
+  ('0', '-1/2', '-1/2')  1/9       ('-3/2', '-1/2', '3/2')    84(-,+) + 7(-,+) + 84(+,-)
+  ('0', '-1/2', '-1/2')  1/9       ('-1', '-1/2', '1')        28(+,+) + 7(-,+) + 28(-,-)
+  ('0', '-1/2', '-1/2')  1/9       ('-1/2', '-1/2', '1/2')    7(-,+) + 7(-,+) + 7(+,-)
+  ('0', '-1', '-1')      2/9       ('1/2',)                   7(+,-)
+  ('0', '-1', '-1')      2/9       ('-3/2', '1/2', '3/2')     84(-,+) + 7(+,-) + 84(+,-)
+  ('0', '-1', '-1')      2/9       ('-1', '1/2', '1')         28(+,+) + 7(+,-) + 28(-,-)
+  ('0', '-1', '-1')      2/9       ('-1/2', '1/2', '1/2')     7(-,+) + 7(+,-) + 7(+,-)
+  ('-1/2', '-1/2', '-1') 2/9       ('1/2',)                   7(+,-)
+  ('-1/2', '-1/2', '-1') 2/9       ('-3/2', '1/2', '3/2')     84(-,+) + 7(+,-) + 84(+,-)
+  ('-1/2', '-1/2', '-1') 2/9       ('-1', '1/2', '1')         28(+,+) + 7(+,-) + 28(-,-)
+  ('-1/2', '-1/2', '-1') 2/9       ('-1/2', '1/2', '1/2')     7(-,+) + 7(+,-) + 7(+,-)
+  ('-1/2', '-1', '-1')   5/18      ('1/2', '1/2')             7(+,-) + 7(+,-)
+
+  >> the minimal-change assignment, l = (1/2, 1/2, 0):
+        two lepton generations in 21s, the third in an 84(+,+)
+        brane-quark charge  X_Q = -1/9  (universal, so CKM is unspoiled)
+        neutrinos           28(+,+) + 28(+,+) + 7(-,+)
+        proton operators    forbidden for ALL THREE generations,
+                            |A_j| = 1/6, 1/6, 1/3
+     and 28(+,+) is present in their cases (2) and (3), while 7(-,+) is
+     present in none of the five -- so this costs ONE new multiplet.
+
+==============================================================================
+STEP 9 -- and then it is not a suppression, it is a SELECTION RULE
+==============================================================================
+  Their model requires U(1)' to be broken by a 4D scalar phi on the fixed
+  point (above their eq. 80).  They do NOT state its charge; su7_u1prime.py
+  identified a candidate, the (1,1)_0 of the 7, with q_phi = 1/2.
+
+  A VEV of charge q_phi does not destroy the symmetry, it breaks
+  U(1)' -> a discrete subgroup: charges are conserved MODULO q_phi.  An
+  operator of charge A can be dressed with n insertions of <phi> or <phi>*
+  only if  A / q_phi  is an INTEGER.  Otherwise it is forbidden to ALL
+  ORDERS -- which is what their question asks for ('by some symmetries').
+
+  (l1,l2,l3)             (A1,A2,A3)                 q_phi -> generations still
+                                                    forbidden to ALL orders
+  ('1/2', '1/2', '0')    ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '1/2', '-1/2') ('1/3', '1/3', '-2/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('1/2', '1/2', '-1')   ('1/2', '1/2', '-1')       1/2:0/3  1:2/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '0', '0')      ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '0', '-1')     ('2/3', '1/6', '-5/6')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '0', '-1')     ('2/3', '1/6', '-5/6')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '0', '-1')     ('2/3', '1/6', '-5/6')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '0', '-1')     ('2/3', '1/6', '-5/6')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '-1/2', '-1/2') ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('1/2', '-1/2', '-1/2') ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('1/2', '-1/2', '-1/2') ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('1/2', '-1/2', '-1/2') ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('1/2', '-1/2', '-1')  ('5/6', '-1/6', '-2/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('1/2', '-1', '-1')    ('1', '-1/2', '-1/2')      1/2:0/3  1:2/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '0', '-1/2')     ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '0', '-1')       ('1/3', '1/3', '-2/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '0', '-1')       ('1/3', '1/3', '-2/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '0', '-1')       ('1/3', '1/3', '-2/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '0', '-1')       ('1/3', '1/3', '-2/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '-1/2', '-1/2')  ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '-1/2', '-1/2')  ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '-1/2', '-1/2')  ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '-1/2', '-1/2')  ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('0', '-1', '-1')      ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '-1', '-1')      ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '-1', '-1')      ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('0', '-1', '-1')      ('2/3', '-1/3', '-1/3')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:0/3
+  ('-1/2', '-1/2', '-1') ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('-1/2', '-1/2', '-1') ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('-1/2', '-1/2', '-1') ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('-1/2', '-1/2', '-1') ('1/6', '1/6', '-1/3')     1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+  ('-1/2', '-1', '-1')   ('1/3', '-1/6', '-1/6')    1/2:3/3  1:3/3  3/2:3/3  2:3/3  1/6:0/3  1/3:2/3
+
+  CONTROL that MUST fire: the family-universal case has A_j = 0, and 0/q is
+  an integer for every q, so every generation is ALLOWED -- no selection
+  rule exists there, at any q_phi.
+           verified at every q_phi above                          : OK
+
+  >> AT THE MINIMAL ASSIGNMENT l = (1/2, 1/2, 0), X_Q = -1/9:
+        q_phi = 1/2    A_j/q_phi = 1/3, 1/3, -2/3              forbidden: 3 of 3
+        q_phi = 1      A_j/q_phi = 1/6, 1/6, -1/3              forbidden: 3 of 3
+
+     with their own natural q_phi = 1/2, A_j/q_phi = (1/3, 1/3, -2/3):
+     NONE is an integer, so ALL FOUR dimension-6 operators are forbidden
+     for ALL THREE generations, EXACTLY, to all orders in <phi>/M --
+     by a residual DISCRETE GAUGE symmetry, which is a Krauss-Wilczek
+     object and needs no supersymmetry.
+     verified                                                     : OK
+
+  >> and that is a direct answer to the sentence they wrote:
+     'How the dangerous proton decay processes can be forbidden, for
+      instance, by some symmetries ... are left for our future work.'
+
+==============================================================================
+STEP 10 -- THE BILL, and it is charged against their own Table 1
+==============================================================================
+  Their own words, just below their eq. (79):
+     'For the leptons to be embedded into the bulk fermion, the bulk fermion
+      must be massive to generate lepton masses.  The potential from such a
+      massive bulk fermion has an extra factor e^{-M pi R} ~ e^{-O(10)} and
+      is very suppressed ... we do not consider the potential from the SM
+      fermion contributions in this paper.'
+
+  So a multiplet that HOSTS leptons is massive, and a massive multiplet does
+  NOT contribute to the Higgs potential.  Putting the third generation in an
+  84(+,+) therefore REMOVES one massless 84 from the potential of that row:
+
+  case   their content              after donating one 84    still their row?
+  (1)    1 x 28(+1,-1) + 4 x 84(+1,+1) 1 x 28(+1,-1) + 3 x 84(+,+) NO -- not a row of their Table 1
+  (2)    1 x 28(+1,+1) + 4 x 84(+1,+1) 1 x 28(+1,+1) + 3 x 84(+,+) NO -- not a row of their Table 1
+  (3)    1 x 28(+1,+1) + 3 x 48(+1,+1) + 2 x 84(+1,+1) 1 x 28(+1,+1) + 3 x 48(+1,+1) + 1 x 84(+,+) NO -- not a row of their Table 1
+  (4)    1 x 7(+1,-1) + 2 x 48(+1,+1) + 3 x 84(+1,+1) 1 x 7(+1,-1) + 2 x 48(+1,+1) + 2 x 84(+,+) NO -- not a row of their Table 1
+  (5)    1 x 7(+1,+1) + 1 x 7(+1,-1) + 4 x 84(+1,+1) 1 x 7(+1,+1) + 1 x 7(+1,-1) + 3 x 84(+,+) NO -- not a row of their Table 1
+
+  >> the donated 84 is exactly the multiplet their potential analysis
+     counted as massless.  None of the five reduced contents is a row of
+     their Table 1, so m_h = 125-127 GeV and 1/R5 would have to be re-
+     derived.  That is THEIR computation (their eqs. 68-76), not one that
+     can be done from the quantum numbers here.
+  >> the honest shape: the family-dependent escape is CONSISTENT at the
+     level of anomalies, charges and zero modes, and it is UNTESTED at the
+     level of the vacuum.  It is a well-posed question for the authors, not
+     a defect in their paper.
+
+==============================================================================
+WHAT IS AND IS NOT ESTABLISHED
+==============================================================================
+  ESTABLISHED:
+    - extra(L) is a LADDER (1-k)/2 set by the number of index-7 boxes, so
+      family dependence is available in this model without new gauge
+      structure -- only by putting generations in different-size multiplets.
+    - the Yukawa closes on every rung: extra(L) + extra(e^c) = 1/2 always.
+    - SU(2)^2 X = (1/2) sum_j A_j EXACTLY, so anomaly cancellation demands
+      sum A_j = 0 while protection demands every A_j != 0: incompatible at
+      N = 1, compatible at N = 3.  That IS arXiv:1001.0768's structure.
+    - with universal brane-quark charge (exact CKM), A_j = l_j - lbar.
+    - rung 1 IS kept by the orbifold, in the 84 at (eta,eta') = (+1,+1),
+      with L left-handed and e_R right-handed and the doublet unsplit -- and
+      the control that rung 0 comes out at the 21 with their own eq. (43)
+      parities passes, with nothing put in by hand.
+    - 14 (rung set, X_Q) assignments cancel EVERY anomaly channel with all
+      A_j != 0, and each names the (rep, parity) of the neutrinos it needs.
+    - at q_phi = 1/2 the residual DISCRETE symmetry forbids all four
+      operators for all three generations to ALL ORDERS -- a selection rule,
+      not a suppression.
+  NOT ESTABLISHED, and each of these is a real gap:
+    - q_phi.  Their paper does not state the charge of the U(1)'-breaking
+      scalar.  1/2 is su7_u1prime.py's candidate; at q_phi = 1/6 or finer
+      the selection rule fails (printed in STEP 9).  This is the SAME
+      unstated-global-choice dependence su7_socratic.py already found.
+    - the potential.  STEP 10: donating an 84 to the leptons removes it from
+      the potential by their own argument, and no reduced content is a row
+      of their Table 1.  The vacuum must be re-derived.
+    - the lepton mass hierarchy, which a rung difference will affect and
+      which is not computed.
+    - that the mixed U(1) anomalies must cancel at all (Green-Schwarz).
+    - the exotic burden: the 84(+,+) has 44 zero modes, of which 3 would be
+      kept; the rest need conjugate brane partners, as their own
+      prescription already requires for every other row.
+
+DONE

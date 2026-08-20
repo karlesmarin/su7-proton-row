@@ -1,0 +1,135 @@
+==============================================================================
+A -- THE FUNDAMENTAL: WHICH LETTERS CARRY CHARGE
+==============================================================================
+    q = +0.5   P5P5' = -1
+    q = +0.0   P5P5' = +1
+    q = +0.0   P5P5' = +1
+    q = +0.0   P5P5' = +1
+    q = +0.0   P5P5' = +1
+    q = +0.0   P5P5' = -1
+    q = -0.5   P5P5' = -1
+  charged letters 2, neutral 5
+  >> and the two charged ones share P5P5' = -1, which is the precondition
+     their sect. 3.2 needs and never states.
+
+==============================================================================
+B -- EQS. (73)-(76), DERIVED AND COMPARED TERM BY TERM
+==============================================================================
+  sign is written relative to s = eta*eta'.  '+s' means the term carries s,
+  '-s' means it carries -s.  Our reading of their equations is su7_vacuum.py.
+
+  With the eq.(71) quadruplet term ON (r4=True), which is how every number in
+  the paper is computed:
+
+  --- 7  = Sym^1(7)
+      c = 1  sign =  -s   group 1    ours 1    
+      charged states in the multiplet: 2
+
+  --- 28  = Sym^2(7)
+      c = 2  sign =  +s   group 1    ours 1    
+      c = 1  sign =  +s   group 1    ours 1    
+      c = 1  sign =  -s   group 4    ours 4    
+      charged states in the multiplet: 12
+
+  --- 48  (the adjoint)
+      c = 2  sign =  +s   group 1    ours 1    
+      c = 1  sign =  +s   group 2    ours 2    
+      c = 1  sign =  -s   group 8    ours 8    
+      charged states in the multiplet: 22
+
+  --- 84  = Sym^3(7)
+      c = 3  sign =  -s   group 1    ours 1    
+      c = 2  sign =  +s   group 4    ours 4    
+      c = 2  sign =  -s   group 1    ours 1    
+      c = 1  sign =  +s   group 4    ours 4    
+      c = 1  sign =  -s   group 12   ours 12   
+      charged states in the multiplet: 44
+
+  all twenty blocks reproduced: True
+
+  CONTROL -- the same comparison with that term OFF. If it also passed, the
+  test would be insensitive to the one term we did not derive, i.e. vacuous.
+
+  --- 7  = Sym^1(7)
+      c = 1  sign =  -s   group 1    ours 1    
+      charged states in the multiplet: 2
+
+  --- 28  = Sym^2(7)
+      c = 2  sign =  +s   group 1    ours 1    
+      c = 1  sign =  +s   group 1    ours 1    
+      c = 1  sign =  -s   group 4    ours 4    
+      charged states in the multiplet: 12
+
+  --- 48  (the adjoint)
+      c = 2  sign =  +s   group 1    ours 1    
+      c = 1  sign =  +s   group 2    ours 2    
+      c = 1  sign =  -s   group 8    ours 8    
+      charged states in the multiplet: 22
+
+  --- 84  = Sym^3(7)
+      c = 3  sign =  -s   group 1    ours 1    
+      c = 2  sign =  +s   group 4    ours 4    
+      c = 2  sign =  -s   group 1    ours 1    
+      c = 1  sign =  +s   group 4    ours 4    
+      c = 1  sign =  -s   group 12   ours 11   *** MISMATCH ***
+      charged states in the multiplet: 44
+
+  reproduced with the term off: False   (it must be False, or this test is blind)
+
+  >> So the term is FORCED. Sym^3 of the charged doublet (a_+, a_-) is an
+     SU(2) QUADRUPLET, charges 3/2, 1/2, -1/2, -3/2. Its q = 3/2 member is
+     a_+a_+a_+ and its q = 1/2 member is a_+a_+a_-, so ONE multiplet feeds
+     TWO values of c. That is the whole content of their note under eq. (71),
+     and we had been applying it on trust.
+
+==============================================================================
+C -- AND THEIR OWN DECOMPOSITION LISTS ALREADY SAID SO
+==============================================================================
+  Their sect. 3.2 lists each multiplet's SU(2)_L content. An SU(2) multiplet
+  of dimension d has members q = (d-1)/2, ..., -(d-1)/2, so it contributes a
+  charged pair at EVERY c = d-1, d-3, ... down to 1 or 0 -- a quadruplet at
+  c = 3 and again at c = 1. Fold their lists that way and compare to B.
+
+  rep   their SU(2) list           folded to c        from the group    
+  7     {2: 1}                     {1: 1}             {1: 1}             
+  28    {3: 1, 2: 5}               {2: 1, 1: 5}       {2: 1, 1: 5}       
+  48    {3: 1, 2: 10}              {2: 1, 1: 10}      {2: 1, 1: 10}      
+  84    {4: 1, 3: 5, 2: 15}        {3: 1, 2: 5, 1: 16} {3: 1, 2: 5, 1: 16} 
+
+  their published lists and SU(7) agree on all four multiplets: True
+
+  >> So the extra term is not a repair of anything of theirs. Their eq. (76)
+     and their sect. 3.2 list are consistent with each other and with the
+     group; what is naive is reading c = 1 as 'a doublet'. The 84 has 15
+     doublets AND a quadruplet, and the quadruplet's inner pair is the
+     sixteenth term at c = 1. Their note under eq. (71) says exactly this.
+
+  Consequence for our own control: su7_vacuum's CONTROL 1 maps c -> SU(2)
+  dimension as d = c+1 and needs r4 OFF to pass. That mapping is only valid
+  when no multiplet reaches past its top member, which the 84's quadruplet
+  does. The control's CONCLUSION survives -- the last two terms of eq. (76)
+  must be 84 terms, since as 48 terms the doublet count cannot be made to
+  work either way -- but it passes for a reason narrower than it claims, and
+  section C above is the version that does not depend on the c+1 shortcut.
+
+==============================================================================
+D -- WHAT THIS EXCLUDES
+==============================================================================
+  the 48 is the adjoint, and of its 48 generators only 22 carry Wilson-line
+  charge -- the other 26 are invisible to V_eff at any order in alpha.
+
+  Their eq. (76)'s 48 block counts exactly those 22, split 2 and 4 and 16 by P5P5'.
+  So the term list for the 48 is right, and it is right for the same reason
+  and by the same rule as the 7, the 28 and the 84.
+
+  >> The two rows of their Table 1 we fail on are the two containing a 48.
+     After this, that failure cannot be a miscount of the 48: the block is
+     derived from SU(7) itself. Whatever differs between their alpha_min and
+     ours is downstream of the term lists, not inside them.
+
+  And one thing this changed about OUR OWN reading, not theirs. su7_vacuum's
+  r4 flag is justified in its docstring as a second, smaller mass EIGENVALUE
+  for the 84's SU(2) quadruplet -- a second eigenvalue of the same states.
+  Section B shows that is not what it is: it is the quadruplet's twelfth
+  STATE, a_+a_+a_-, which a state count does check and did. The flag was
+  right; the reason we gave for it was not.

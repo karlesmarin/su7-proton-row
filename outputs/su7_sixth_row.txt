@@ -1,0 +1,77 @@
+==============================================================================
+A -- THE CONFOUND, AS THEIR OWN FIVE ROWS PRESENT IT
+==============================================================================
+  case   n(48)    a theirs  a ours   ratio
+  (1)    0        0.0430    0.0553   1.29
+  (2)    0        0.0810    0.0831   1.03
+  (3)    3        0.0210    0.0436   2.08
+  (4)    2        0.0260    0.0469   1.80
+  (5)    0        0.0430    0.0553   1.29
+
+  n(48) and a_theirs are perfectly rank-correlated across the five, so the
+  ratio column cannot tell them apart.  Every row with a 48 is a row with a
+  small alpha.  THAT is the confound, and it needs a sixth row to break.
+
+==============================================================================
+B -- SEARCHING THEIR OWN ALLOWED CONTENT FOR THE TWO DISCRIMINATING KINDS
+==============================================================================
+  Up to six fermions from 7, 28, 48, 84 -- their own sentence before Table 1.
+  Keep only contents that break electroweak symmetry, D > 0, which is exact.
+
+  contents enumerated : 923
+  of those, D > 0     : 427
+  with a minimum strictly inside (0.005, 0.30) : 350
+
+  and of those, with m_h in 120-132 GeV -- a band around their own
+  selection of 125-127, which is what makes a row publishable : 22
+
+  THE QUESTION THIS ACTUALLY ANSWERS: inside that band, is n(48) still
+  locked to a small alpha?  If it is, no sixth row can EVER separate the two
+  readings within their content, and the confound is structural.
+
+     n(48)    contents   alpha range m_h range
+     0        11         0.0288-0.0873 120-131
+     1        6          0.0185-0.0734 121-132
+     2        4          0.0180-0.0538 122-130
+     3        1          0.0472-0.0472 121-121
+
+     alpha with a 48 : 0.0180 - 0.0734      alpha with none : 0.0288 - 0.0873
+     the two ranges OVERLAP by 0.0447 : yes
+     >> so a publishable row DOES exist that breaks the lock.
+
+  (i) WITH a 48 and a LARGE alpha_min -- the kind their table has not got:
+     content                                    n(48)  a ours    F''       m_h at g4=0.63
+     1 x 28(+1,-1) + 1 x 28(+1,+1) + 1 x 48(+1,+1) + 3 x 84(+1,+1) 1      0.0734    42.92     126.2
+     1 x 28(+1,+1) + 1 x 48(+1,+1) + 3 x 84(+1,+1) 1      0.0685    39.74     130.1
+     1 x 28(+1,-1) + 1 x 48(+1,+1) + 1 x 7(+1,-1) + 3 x 84(+1,+1) 1      0.0566    27.80     131.8
+
+  (ii) with NO 48 and a SMALL alpha_min -- the other discriminator:
+     content                                    n(48)  a ours    F''       m_h at g4=0.63
+     1 x 28(+1,+1) + 1 x 7(+1,+1) + 2 x 84(+1,+1) 0      0.0288    7.09      131.0
+     1 x 28(+1,-1) + 1 x 28(+1,+1) + 1 x 7(+1,+1) + 2 x 84(+1,+1) 0      0.0395    11.32     120.5
+     1 x 28(+1,+1) + 1 x 7(+1,-1) + 2 x 7(+1,+1) + 2 x 84(+1,+1) 0      0.0396    11.39     120.7
+
+==============================================================================
+C -- THE PREDICTION, WRITTEN BEFORE ANY SUCH ROW EXISTS
+==============================================================================
+  On their five rows the ratio a_ours/a_theirs is 1.94 on the two rows with a
+  48 and 1.20 on the three without.  For a sixth row the two readings split:
+
+  (i)  48-rich, large alpha
+     content            1 x 28(+1,-1) + 1 x 28(+1,+1) + 1 x 48(+1,+1) + 3 x 84(+1,+1)
+     ours               a_min = 0.0734,  m_h = 126.2 GeV at g4 = 0.63
+     if the 48 is the locus       -> published a_min near 0.0378  (ratio 1.94)
+     if small alpha is the locus  -> published a_min near 0.0612  (ratio 1.20)
+     the two differ by a factor 1.62, which two significant figures resolve.
+
+  (ii) no 48, small alpha
+     content            1 x 28(+1,+1) + 1 x 7(+1,+1) + 2 x 84(+1,+1)
+     ours               a_min = 0.0288,  m_h = 131.0 GeV at g4 = 0.63
+     if the 48 is the locus       -> published a_min near 0.0240  (ratio 1.20)
+     if small alpha is the locus  -> published a_min near 0.0148  (ratio 1.94)
+     the two differ by a factor 1.62, which two significant figures resolve.
+
+  Neither reading is adopted here.  What is fixed is the number each of them
+  commits to, on a content that does not yet exist in print, so that whoever
+  computes one can read the answer off instead of re-opening the argument.
+  [paper_data/su7_sixth_row.json written]

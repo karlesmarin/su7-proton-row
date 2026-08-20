@@ -1,0 +1,7 @@
+fórmulas de display: EN 18, ES 18
+  las 18 fórmulas de display son idénticas en las dos ediciones
+EN: delimitadores y $ -- ok
+ES: delimitadores y $ -- ok
+macros: 5 en EN, 5 en ES
+EN log: sin glifos caídos ni comandos inválidos en matemáticas
+ES log: sin glifos caídos ni comandos inválidos en matemáticas

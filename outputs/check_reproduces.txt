@@ -1,0 +1,33 @@
+guiones citados por el articulo: 26
+
+  su7_D_exponent.py                  reproduce su archivo
+  su7_adjoint_is_vectorlike.py       reproduce su archivo
+  su7_anchor_mh.py                   reproduce su archivo
+  su7_anomaly_channels.py            reproduce su archivo
+  su7_branchings.py                  reproduce su archivo
+  su7_brane_partner.py               reproduce su archivo
+  su7_content_dependence.py          reproduce su archivo
+  su7_cross_paper.py                 reproduce su archivo
+  su7_family_u1.py                   reproduce su archivo
+  su7_fermion_from_group.py          reproduce su archivo
+  su7_gauge_from_group.py            reproduce su archivo
+  su7_kk_spectrum.py                 reproduce su archivo
+  su7_loop_order_margin.py           reproduce su archivo
+  su7_qphi.py                        reproduce su archivo
+  su7_qphi_socratic.py               reproduce su archivo
+  su7_realisable.py                  reproduce su archivo
+  su7_repair_space.py                reproduce su archivo
+  su7_residual_group.py              reproduce su archivo
+  su7_sixth_row.py                   reproduce su archivo
+  su7_vacuum.py                      reproduce su archivo
+  su7_w48_conditioning.py            reproduce su archivo
+  su7_w_charge.py                    reproduce su archivo
+  su7_wedge_direction.py             reproduce su archivo
+  twoloop_wedge.py                   reproduce su archivo
+
+  no comprobado  make_figures_su7.py            no tiene salida archivada en outputs/
+  no comprobado  su7_anchor_exact.sage          Sage: necesita el contenedor, fuera del alcance de esta compuerta
+
+  reproducen 24 | difieren 0 | revientan 0 | no comprobados 2
+
+todo guion citado que puede ejecutarse aqui vuelve a dar su salida archivada, byte a byte

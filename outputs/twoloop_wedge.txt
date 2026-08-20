@@ -1,0 +1,82 @@
+============================================================================================
+THE GROUP-THEORY RATIO, exact
+============================================================================================
+   SU(7):  C_F = 24/7,  C_2(A) = 7
+   delta_f / delta_b = 6 C_F / (5 N) = 144/245 = 0.58776
+   K3  the same as 3(N^2-1)/(5N^2) for N = 2..10:
+       OK
+
+============================================================================================
+K1 -- a rescaling common to both sectors must move nothing
+============================================================================================
+   delta_f = delta_b = -0.05  ->  multiplier 1.0000000000
+   delta_f = delta_b = -0.10  ->  multiplier 1.0000000000
+   delta_f = delta_b = -0.30  ->  multiplier 1.0000000000
+   OK: identically 1, as sec:repair asserts.
+
+============================================================================================
+THE TRANSPLANT, against the wedge's own ceiling 27/26 = 1.038462
+============================================================================================
+      g4     delta_b     delta_f  w multiplier   vs 27/26       margin
+  0.5500    -0.06705    -0.03941       1.02963      under      -0.851%
+  0.5800    -0.07456    -0.04382       1.03321      under      -0.505%
+  0.6000    -0.07979    -0.04690       1.03575      under      -0.262%
+  0.6205    -0.08534    -0.05016       1.03846      under      -0.000%
+  0.6300    -0.08797    -0.05170       1.03976       OVER       0.125%
+  0.6500    -0.09364    -0.05504       1.04259       OVER       0.398%
+  0.7000    -0.10860    -0.06383       1.05023       OVER       1.133%
+  0.8000    -0.14185    -0.08337       1.06814       OVER       2.858%
+
+============================================================================================
+K2 -- where it crosses, by two routes
+============================================================================================
+   bisection   g4* = 0.620501
+   closed form g4* = 0.620501   (g^2* = (THR-1)/(a - THR b))
+   agree to 7.77e-16  OK
+
+============================================================================================
+WHAT IT DOES TO THIS PAPER'S OWN ESTIMATE
+============================================================================================
+   sec:repair reads the alarm from the GAUGE-ONLY suppression, 6.70-14.19%% over
+   g4 in [0.55,0.80], and calls it 'between 1.8 and 3.8 times the margin'. But the fermion
+   sector is suppressed too. The gauge-only-equivalent of the NET effect is s with
+   1/(1-s) = (1+delta_f)/(1+delta_b):
+
+      g4     gauge only net equivalent s   x the margin
+  0.5500         6.705%           2.877%          0.777
+  0.6205         8.534%           3.704%          1.000
+  0.6300         8.797%           3.824%          1.033
+  0.8000        14.185%           6.380%          1.722
+
+   So the honest range is not 1.8-3.8 times the margin but 0.78-1.72, crossing 1 at
+   g4 = 0.6205. The alarm is a great deal smaller than the paper states, and a great deal
+   sharper: it is a knife edge at the nominal coupling instead of a factor of four.
+
+============================================================================================
+THE NUMBERS AS THE PAPER QUOTES THEM -- printed at the paper's own precision so that every one
+of them is greppable in this archived run, which is the house rule
+============================================================================================
+   delta_f/delta_b                      0.5878   (0.59)
+   w multiplier at g4 = 0.63            1.0398   (1.04)
+   net equivalent s at g4 = 0.55 (%)    -2.9626   (-2.96)
+   net equivalent s at g4 = 0.80 (%)    6.3796   (6.38)
+   x the margin at g4 = 0.55            0.7769   (0.78)
+   x the margin at g4 = 0.63            1.0325   (1.03)
+   x the margin at g4 = 0.80            1.7225   (1.72)
+   crossing g4*                         0.6205   (0.62)
+
+============================================================================================
+VERDICT
+============================================================================================
+   At the g4 = 0.63 this series uses, the transplant gives w -> 1.03976 against a ceiling of
+   1.03846: OVER, by 0.13%. The crossing sits at g4* = 0.6205, which is 1.5% below 0.63.
+
+   The direction is fixed by group theory alone and does not depend on the coupling: since
+   6C_F < 5N for every N >= 2, the gauge sector is suppressed the more of the two, so w RISES.
+   Only whether it rises far enough depends on g4, and at the nominal value it does.
+
+   This is a transplant of four-dimensional thermal results into a six-dimensional orbifold.
+   The group factors are the same algebra; the loop integrals are not. It does not settle the
+   open question. What it settles is that the question cannot be assumed to fall the safe way:
+   the closest published analogue falls the other way, at the nominal coupling, by less than
+   half a percent -- which is inside any honest uncertainty on g4 and on the transplant itself.

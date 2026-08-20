@@ -1,0 +1,61 @@
+==============================================================================
+A -- alpha_min IS MONOTONE INCREASING IN THE FERMION WEIGHT
+==============================================================================
+  case   lam=0.60  lam=0.80  lam=1.00  lam=1.20  lam=1.40
+  (1)     0.0000   0.0376   0.0553   0.0658   0.0728
+  (2)     0.0441   0.0696   0.0831   0.0915   0.0974
+  (3)     0.0000   0.0190   0.0436   0.0559   0.0638
+  (4)     0.0000   0.0261   0.0469   0.0582   0.0657
+  (5)     0.0000   0.0377   0.0553   0.0657   0.0727
+
+  monotone increasing on every row : True
+  >> so raising the fermion weight RAISES alpha_min, and lowering it lowers it.
+
+==============================================================================
+B -- THE RATIO EACH ROW ASKS FOR, AND WHERE IT SITS IN THE WEDGE
+==============================================================================
+  Solve  argmin F(alpha; lam) = alpha_theirs  for lam, per row.  lam is the
+  fermion weight with the gauge part held at 1, i.e. exactly the ratio the
+  wedge constrains.
+
+  case   theirs     ours(1)    lam       in wedge?  side
+  (1)    0.0430     0.0553     0.8483    yes        below 1   published 0.848 OK
+  (2)    0.0810     0.0831     0.9619    yes        below 1   published 0.962 OK
+  (3)    0.0210     0.0436     0.8102    yes        below 1   published 0.810 OK
+  (4)    0.0260     0.0469     0.7996    yes        below 1   published 0.800 OK
+  (5)    0.0430     0.0553     0.8480    yes        below 1   published 0.848 OK
+
+  wedge = (27/46, 27/26) = (0.5870, 1.0385)
+  every row inside the wedge          : True
+  every row BELOW 1                   : True
+  the largest of them                 : 0.9619, against the ceiling 1.0385
+
+==============================================================================
+C -- SO THE TWO EXPOSURES ARE MUTUALLY EXCLUSIVE
+==============================================================================
+  The verdict breaks only ABOVE 1.0385.  The anchor column is reproduced only
+  BELOW 1, at 0.7996 to 0.9619.  The two live on opposite sides of 1.
+
+  distance from 1 to the ceiling        : 0.0385
+  distance from 1 down to the fits      : 0.0381 to 0.2004
+  distance from the fits to the ceiling : 0.0765 to 0.2389
+
+  >> A correction that pushes the ratio UP towards 27/26 does not merely
+     endanger the verdict.  It makes alpha_min LARGER, and ours is already
+     too large on all five rows -- so it makes the discrepancy it would be
+     invoked to explain WORSE.  The two-loop pure-gauge factor is exactly
+     such a push: suppressing the gauge sector by delta is a ratio 1/(1-delta)
+     above 1.
+
+  >> Therefore, if loop order IS the anchor residual, its net effect on this
+     ratio has to be a SUPPRESSION of the fermion sector -- the fermionic
+     two-loop term outrunning the pure-gauge one and reversing its sign --
+     and that direction moves the verdict AWAY from breaking, not towards it.
+     The alarming direction and the explanatory direction are opposite.
+
+  This does not make the verdict two-loop safe: nobody has computed the term
+  and the ratio could still land above 27/26 while the anchor stays unexplained.
+  What it removes is the reading that the leading candidate for the residual
+  is ALSO the thing most likely to break the headline.  It is the opposite.
+
+  [paper_data/su7_wedge_direction.json written for the figure]

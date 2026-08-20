@@ -1,0 +1,69 @@
+==============================================================================
+A -- ARE THE THREE QUANTUM NUMBERS SIMULTANEOUS?  (they must be, or eq. (68)
+    cannot be a sum over them at all)
+==============================================================================
+  [M, P5P5']     max|.| = 2.22e-16
+  [M, P6]        max|.| = 2.22e-16
+  [P5P5', P6]    max|.| = 0.00e+00
+  all three commute.  PASS -- and this IS the pi_5 = pi_7 precondition:
+  P5P5' on indices 5,7 = (-1, -1), P6 on indices 5,7 = (-1, -1)
+  had either pair differed, the charge eigenbasis would not be a parity
+  eigenbasis and their eq. (68) could not be written this way.
+
+==============================================================================
+B -- ALL 48 ADJOINT GENERATORS, CLASSIFIED
+==============================================================================
+  q        P5P5'      P6       states
+  -1.0     +1         +1       1
+  -0.5     -1         -1       6
+  -0.5     -1         +1       2
+  -0.5     +1         +1       2
+  0.0      -1         -1       6
+  0.0      -1         +1       2
+  0.0      +1         -1       6
+  0.0      +1         +1       12
+  0.5      -1         -1       6
+  0.5      -1         +1       2
+  0.5      +1         +1       2
+  1.0      +1         +1       1
+
+  total 48 = dim adjoint : True
+  charged states 22, neutral 26  -- against su7_kk_spectrum.py's 22 and 26
+
+==============================================================================
+C -- WHAT THEIR EQ. (68) SHOULD BE, FROM THAT TABLE ALONE
+==============================================================================
+  The table in B is group theory and cannot move.  What IS a convention is
+  the weight each component carries into the potential: their eqs. (63)-(67)
+  close to (3k/4(pi n)^5)[P6 + g(pi k n)], so P6 = +1 and P6 = -1 components
+  enter with DIFFERENT constants, and a 6D gauge field splits into A_mu, A_5
+  and A_6 whose own P6 is not the generator's.  So do not assume the weights:
+  read them off, and let the redundancy be the test.
+
+  Each term of eq. (68) is a PAIR (q, -q), and c = 2|q|.  Write a for the
+  weight of a P6 = +1 pair and b for a P6 = -1 pair.  Three coefficients,
+  two unknowns -- OVERDETERMINED, so this can fail.
+
+  c      s=P5P5'   pairs P6=+  pairs P6=-  theirs
+  1      +1        2           0           4
+  1      -1        2           6           7
+  2      +1        1           0           2
+
+  rows with NO P6 = -1 pairs fix a on their own : ['2']
+  CONSISTENCY, and it could have failed: those rows agree on a  : True
+  the remaining row then fixes b                 : 1/2
+
+  their eq. (68)                    : {(1, -1): 7, (1, 1): 4, (2, 1): 2}
+  rebuilt from the table with (a,b) : {(1, -1): '7', (1, 1): '4', (2, 1): '2'}
+
+  >> THEIR EQ. (68) IS REPRODUCED, three coefficients from two weights.
+     a = 2 per P6 = +1 pair, b = 1/2 per P6 = -1 pair -- a ratio of 4.
+     And it is their own sentence: the 7 at (c=1, s=-1) is 2 x 2 from
+     the P6 = +1 pairs plus 6 x 1/2 from the P6 = -1 ones, i.e. 4 + 3 --
+     the split their text states and never derives.
+
+  >> So the GAUGE sector is now verified against the Wilson line and the
+     orbifold parities, on the same footing as eqs. (73)-(76).  The one
+     coefficient the repair wedge holds fixed is no longer the one thing
+     in the potential that was only checked against its own upstream
+     equation.

@@ -1,0 +1,226 @@
+==============================================================================
+ENTRY CONTROL -- terms() against the actual Wilson line (eq. 77)
+==============================================================================
+  all four representations reproduce the Wilson-line count:  PASS
+  (the same instrument as su7_content_dependence.py, re-asserted here so this
+   script cannot silently drift from it.)
+
+==============================================================================
+PART A -- THE HEADLINE AS A REGION, NOT AS A POINT
+==============================================================================
+  The headline is: case (2) is the unique row of their Table 1 that both
+  supplies the nu_R its own anomaly cancellation demands AND survives
+  donating an 84(+,+) to host a third lepton generation.
+
+  It has two halves and they are NOT equally exposed:
+    (i)  which rows can supply a U(1)' = -1 SM singlet: rows (2) and (3).
+         Pure group theory on their eqs. (69),(70) + parities -- it is a
+         statement about WHICH COMPONENTS EXIST, and no repair of the
+         POTENTIAL can touch it.  (su7_anomaly_channels.py; outputs/.)
+    (ii) of those two, (3) loses EWSB on donation and (2) does not.
+         This comes from D, computed from the very eqs. (68),(72)-(76) that
+         fail the anchor.  THIS is the exposed half, and it is what follows.
+
+  gauge sector          D = -27/8
+  7(+,+)                D = -3/4     (per multiplet)
+  7(+,-)                D = 1        (per multiplet)
+  28(+,+)               D = 2        (per multiplet)
+  28(+,-)               D = 1/4      (per multiplet)
+  48(+,+)               D = 0        (per multiplet)
+  84(+,+)               D = 5/4      (per multiplet)
+
+  D IS EXACTLY LINEAR IN THE WEIGHTS, and the 48's coefficient is EXACTLY 0.
+  Proof by the arithmetic itself, not by evaluation: the 48(+,+) contributes
+  m c^2 = 1*4 + 2*1 = 6 at s = +1 and 8*1 = 8 at s = -1, and 6 - (3/4)*8 = 0.
+  So w(48) multiplies zero -- for EVERY value of w(48).
+     control: D(48) at w(48) = 0, 1, 5, 100  ->  [Fraction(0, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)]   PASS
+
+  >> THE SINGLE LARGEST REPAIR THE a_min COLUMN ASKS FOR IS w(48) = 5.59
+     (ANCHOR_SECTION_31.md s6, system (I), residual 0.0064).  IT IS INVISIBLE
+     TO THE HEADLINE.  Not approximately -- identically.
+
+  The two exposed inequalities, in exact eighths.  After donating one 84:
+     row (3):  D = -27/8 + 2 w(28) + (5/4) w(84)          must be < 0
+     row (2):  D = -27/8 + 2 w(28) + (15/4) w(84)         must be > 0
+  w(7) and w(48) do not appear in either.  The headline lives in a PLANE.
+
+  The wedge, sliced along w(28) = w(84) = w -- which must reproduce the
+  published lam_crit of SU7_VACUUM.md, and that is a control that can fail:
+     (2) survives for w > 27/46 = 0.5870      [SU7_VACUUM.md lam_crit(2) = 0.587]
+     (3) dies     for w < 27/26 = 1.0385      [SU7_VACUUM.md lam_crit(3) = 1.038]
+     control against the published values: PASS
+     >> the headline holds on the whole interval w in (0.587, 1.038) -- a factor
+        1.77 wide, and it CONTAINS w = 1.
+
+  And the same wedge in the full (w28, w84) plane, evaluated at every repair
+  this programme has actually fitted:
+  repair                     w(28)    w(84)    D(2) don.   D(3) don.   headline
+  their formulas, w = 1      1.000    1.000    2.3750      -0.1250     HOLDS
+  (I) a_min only        s6   1.081    0.827    1.8882      -0.1792     HOLDS
+  (II) curvature only   s6   1.037    1.030    2.5615      -0.0135     HOLDS
+  (I)+(II) both columns s6   0.825    0.923    1.7363      -0.5713     HOLDS
+  per-row lam, lowest   s4   0.800    0.800    1.2250      -0.7750     HOLDS
+  per-row lam, highest  s4   0.962    0.962    2.1565      -0.2485     HOLDS
+  EDGE: w at which (2) dies  0.587    0.587    0.0000      -1.4674     *** BROKEN ***
+
+  ORDERING FACT, and it is why there are three regions and not four:
+     D(2) - D(3) = (15/4 - 5/4) w(84) = (5/2) w(84) > 0 for any w(84) > 0.
+     So row (3) can NEVER survive the donation while row (2) dies.  The plane
+     has exactly three regions: both alive, the headline wedge, both dead.
+
+  >> every repair the anchor data has ever asked for keeps the headline.
+     The one that comes closest to breaking it is the curvature-only fit
+     (w(84) = 1.030 against the ceiling 1.038 at w(28) = 1.037) -- and that
+     system is exactly determined, so it says nothing.  Recorded anyway.
+
+------------------------------------------------------------------------------
+AND THE PER-CHANNEL REPAIR IS KILLED A THIRD TIME, BY THE VACUUM
+------------------------------------------------------------------------------
+  s6 rejected it twice: its control fires (it fits scrambled data equally
+  well, ratio 0.97) and it needs g4 = 2.39.  Both are arguments about the
+  FIT.  D is an independent instrument -- it never sees a_min or m_h at all.
+
+  The channel weights s6 measured are all in 0.13-0.28 where eq. (72) says 1.
+  Take the whole band [0.13, 0.28] and ask what D their OWN UNMODIFIED rows
+  would have -- rows that, by their own Table 1, DO break electroweak
+  symmetry.  D <= 0 means a = 0 is a minimum and there is no EWSB at all.
+
+  case   D at w=1       D at x=0.28    D at x=0.13    verdict at x <= 0.28
+  (1)    1.8750         -1.9050        -2.6925        *** NO EWSB ***
+  (2)    3.6250         -1.4150        -2.4650        *** NO EWSB ***
+  (3)    1.1250         -2.1150        -2.7900        *** NO EWSB ***
+  (4)    1.3750         -2.0450        -2.7575        *** NO EWSB ***
+  (5)    1.8750         -1.9050        -2.6925        *** NO EWSB ***
+
+  >> at the largest weight the channel fit allows, ALL of the five rows lose
+     electroweak symmetry breaking ALTOGETHER -- including the rows whose
+     published a_min and m_h the fit was constructed to reproduce.  A repair
+     that reproduces two numbers of a row by destroying the phenomenon that
+     row exists to exhibit is not a repair.
+     The instrument is independent: D never sees a_min or m_h.
+
+==============================================================================
+PART B -- ONE MORE NEGATIVE FOR THE ANCHOR: NO SINGLE EXTRA CHANNEL EITHER
+==============================================================================
+  s6 ended: whatever is missing changes the STRUCTURE -- a cosine argument
+  outside {1,2,3} x pi n a, an n-dependence that is not 1/n^5, or multiplets
+  not in (69),(70).  All three are the same object: ONE extra term
+      delta(a) = v * sum_n s^n cos(c pi n a) / n^p
+  with (c, p, s) free.  Add it and the system stays LINEAR, so it is a scan
+  over (c, p, s) with a least-squares solve at each point -- no optimiser.
+
+------------------------------------------------------------------------------
+B0 -- THE DEMAND, MEASURED BEFORE ANYTHING IS FITTED
+------------------------------------------------------------------------------
+  At their published a_i the missing piece must supply
+      delta'(a_i)  = -F'(a_i)                    (make a_i stationary)
+      delta''(a_i) = c_i/g4^2 - F''(a_i)         (and give their m_h)
+  with g4 the 4D SU(2)_L coupling.  Taking the SM value g4 = 0.6300:
+
+  case   a        F'(a)        demand d'    F''(a)       demand d''   |d''| a / |d'|
+  (1)    0.043    -0.2952      0.2952       16.2016      -1.3483      0.1964
+  (2)    0.081    -0.1133      0.1133       53.5722      -1.9422      1.3883
+  (3)    0.021    -0.1945      0.1945       -2.4488      5.8971       0.6366
+  (4)    0.026    -0.2563      0.2563       0.6096       4.7866       0.4856
+  (5)    0.043    -0.2957      0.2957       16.2520      -1.5390      0.2238
+
+  READ THE LAST COLUMN, AND READ IT AS AN EXCLUSION AND NOTHING MORE.
+  Any term  v sum_n s^n cos(c pi n a)/n^p  whose argument c pi n a is small
+  at n = 1 obeys  delta' = a * delta''  IDENTICALLY (expand the cosine: both
+  are -v (c pi)^2 sum_n s^n/n^(p-2), one of them times a).  Such a term
+  therefore enters that column at 1 on EVERY row, whatever v, c, p, s are.
+  The measured demands range over a factor 7.1, from 0.20 to 1.39.
+  >> NO SINGLE SMALL-ARGUMENT TERM SUPPLIES ALL FIVE DEMANDS.  That is all
+     this column shows.  It does NOT say what c is -- the scan measures that.
+
+------------------------------------------------------------------------------
+B1/B2 -- THE SCAN
+------------------------------------------------------------------------------
+  B1: one universal extra term, the same in every row.  Unknowns (v, 1/g4^2):
+      2 unknowns, 10 equations.
+  B2: the extra term carried per representation, multiplicity v_R and sign
+      tracking each multiplet's own eta*eta'.  Unknowns (v_7,v_28,v_48,v_84,
+      1/g4^2): 5 unknowns, 10 equations.
+
+  THE CONTROL, AND IT IS THE WHOLE TEST.  Scanning (c, p, s) is itself a
+  search, so a control that fixes (c,p,s) at the real winner and re-solves on
+  scrambled data measures nothing.  The control here re-runs THE ENTIRE SCAN
+  on each of the 119 non-trivial permutations of their a_min column and takes
+  the best residual of each.  Best-over-search against best-over-search is
+  the only comparison that can fail. [[a-control-that-cannot-fail]]
+
+  baseline: no extra term at all, only 1/g4^2 free   ||res|| = 2.8366
+
+  B1 universal   best (c, p, s) = (35.0, 3, -1)   ||res|| = 0.00636   g4 = 0.626
+                 weights: ['-0.0002']   (eq. (72) says the fermion terms carry 1)
+                 CONTROL, full scan re-run on all 118 scrambles of their a column:
+                   best 0.00627 (0.99 x real)   median 0.01763   worst 0.02166
+                   scrambles reaching the real residual: 6 of 118
+                 -> *** NOT A DISCRIMINATION -- the family fits anything ***
+                 THE OLD CONTROL, for the record: (c,p,s) FIXED at the winner and
+                   the a column merely reversed -> ||res|| = 0.0217, ratio 3.41
+                   i.e. it would have reported 'informative'.  It does not re-run the search.
+
+  The residual landscape in c, at the winning (p, s) -- a single sharp
+  minimum is a measurement; a forest of comparable ones is a wiggle
+  fitting four points.
+     c=35.0:0.0064  c=34.5:0.0064  c=35.5:0.0065  c=34.0:0.0067  c=36.0:0.0068  c=40.0:0.0068  c=16.5:0.0073  c=33.5:0.0073
+     values of c within 3x of the winner: 51 of 80  ->  [10.5, 11.0, 11.5, 12.0, 13.0, 13.5, 14.0, 14.5, 15.0, 15.5, 16.0, 16.5]
+
+  B2 per-rep     best (c, p, s) = (40.0, 3, -1)   ||res|| = 0.00129   g4 = 0.618
+                 weights: ['0.0027', '0.0014', '-0.0001', '-0.0004']   (eq. (72) says the fermion terms carry 1)
+                 CONTROL, full scan re-run on all 118 scrambles of their a column:
+                   best 0.00055 (0.43 x real)   median 0.00232   worst 0.00366
+                   scrambles reaching the real residual: 14 of 118
+                 -> *** NOT A DISCRIMINATION -- the family fits anything ***
+                 THE OLD CONTROL, for the record: (c,p,s) FIXED at the winner and
+                   the a column merely reversed -> ||res|| = 0.0045, ratio 3.51
+                   i.e. it would have reported 'informative'.  It does not re-run the search.
+
+------------------------------------------------------------------------------
+B3 -- 'AN n-DEPENDENCE THAT IS NOT 1/n^5', ON ITS OWN
+------------------------------------------------------------------------------
+  Keep the gauge sector at 1/n^5 (it is exact, s1) and let the WHOLE fermion
+  sector run as 1/n^q with one overall weight.  Two unknowns, ten equations --
+  the tightest test in this file.
+
+  q        weight     g4         ||res||
+  3.0      0.0395     0.866      0.0340
+  3.5      0.0651     0.932      0.0279
+  4.0      0.1196     0.963      0.0306
+  4.5      0.2539     0.904      0.0469
+  5.0      0.8813     0.624      0.1699
+  5.5      -1.4125    IMAG       0.6517
+  6.0      -0.5312    IMAG       0.2227
+  6.5      -0.3707    IMAG       0.1469
+  7.0      -0.3067    IMAG       0.1183
+  7.5      -0.2739    IMAG       0.1042
+  8.0      -0.2548    IMAG       0.0961
+
+  best q = 3.5 at weight 0.0651, g4 = 0.932, ||res|| = 0.0279
+  CONTROL, same scan over q on all 118 scrambles: best 0.0287 (1.03 x real), median 0.0430
+    >> *** NOT A DISCRIMINATION -- two free parameters fit anything ***
+  And the weight it wants is 0.0651 where their eq. (72) says 1: the fermion
+  sector would have to be 15x weaker than their own formula.
+
+------------------------------------------------------------------------------
+B4 -- AND THE WINNERS HANDED TO THE VACUUM, WHICH NEVER SAW a_min OR m_h
+------------------------------------------------------------------------------
+  Their Table 1 rows exist because they BREAK electroweak symmetry.  Any
+  repair must leave V''(0) < 0 (a = 0 a maximum) on all five.  V''(0) is
+  computed numerically here because a 1/n^q term changes the zeta values the
+  closed-form D is built from.
+
+  case   V''(0) theirs    V''(0) + B2 winner EWSB
+  (1)    -22.2436         -191.2253        kept
+  (2)    -43.0053         -45.7367         kept
+  (3)    -13.3460         -10.5779         kept
+  (4)    -16.3118         -332.6055        kept
+  (5)    -22.2436         -310.8748        kept
+
+  (a_min itself is not recomputed here: ANCHOR_SECTION_31.md s6's instrument
+   note applies -- argmin jumps between local minima and its Jacobian is
+   meaningless.  V''(0) is a sign, not a fit, which is why it is the one
+   thing this programme states about modified content.)
+
+wrote paper_data/su7_repair_space.json

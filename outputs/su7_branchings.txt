@@ -1,0 +1,104 @@
+==============================================================================
+CONTROL -- their eq. (41), the 7
+==============================================================================
+  (SU3,SU2) Y       parities (xi,eta,eta')         vs their (41)
+  (3,1)     0       (xi, -eta, -eta')              match
+  (1,2)     1/2     (-xi, -eta, eta')              match
+  (1,1)     -1      (-xi, eta, eta')               match
+  (1,1)     0       (-xi, eta, -eta')              match
+  verdict: their eq. (41) is reproduced exactly, so the index assignment is right
+
+==============================================================================
+28 = Sym^2(7)  -- their eq. (69)
+==============================================================================
+  (SU3,SU2) Y       parities (xi,eta,eta')     dim    match
+  (1,3)     1       (xi, -eta, -eta')          3      *** NOT IN THEIR LIST ***
+  (3,2)     1/2     (-xi, -eta, eta')          6      *** NOT IN THEIR LIST ***
+  (1,2)     -1/2    (xi, eta, -eta')           2      *** MISMATCH, they print (1, 1, 1) ***
+  (1,2)     1/2     (xi, eta, eta')            2      *** MISMATCH, they print (1, 1, -1) ***
+
+  total dimension of Sym^2(7) = 28   OK
+  their pieces reproduced: 2/4   MISSING [(3, 2, Fraction(-1, 2)), (1, 3, Fraction(-1, 1))]
+  verdict: *** DISCREPANCY ***
+
+  >> every parity above matched and only the hypercharges came out negated.
+     That is exactly what conjugation does, and nothing else does it. Retry:
+
+==============================================================================
+28 = Sym^2(7bar)  -- their eq. (69)
+==============================================================================
+  (SU3,SU2) Y       parities (xi,eta,eta')     dim    match
+  (1,3)     -1      (xi, -eta, -eta')          3      match
+  (3,2)     -1/2    (-xi, -eta, eta')          6      match
+  (1,2)     -1/2    (xi, eta, eta')            2      match
+  (1,2)     1/2     (xi, eta, -eta')           2      match
+
+  total dimension of Sym^2(7) = 28   OK
+  their pieces reproduced: 4/4
+  verdict: EXACT -- content, hypercharges and all three parities
+
+==============================================================================
+84 = Sym^3(7)  -- their eq. (70)
+==============================================================================
+  (SU3,SU2) Y       parities (xi,eta,eta')     dim    match
+  (1,4)     3/2     (-xi, -eta, eta')          4      match
+  (3,3)     1       (xi, -eta, -eta')          9      match
+  (1,3)     0       (-xi, eta, eta')           3      match
+  (1,3)     1       (-xi, eta, -eta')          3      match
+  (6,2)     1/2     (-xi, -eta, eta')          12     match
+  (3,2)     -1/2    (xi, eta, -eta')           6      match
+  (3,2)     1/2     (xi, eta, eta')            6      match
+  (1,2)     -3/2    (-xi, -eta, eta')          2      match
+  (1,2)     -1/2    (-xi, -eta, -eta')         2      match
+  (1,2)     1/2     (-xi, -eta, eta')          2      match
+
+  total dimension of Sym^3(7) = 84   OK
+  their pieces reproduced: 10/10
+  verdict: EXACT -- content, hypercharges and all three parities
+
+  control: is the 84 also conjugate?  (if both readings fitted, neither would
+  mean anything)
+
+==============================================================================
+84 = Sym^3(7bar)  -- their eq. (70)
+==============================================================================
+  (SU3,SU2) Y       parities (xi,eta,eta')     dim    match
+  (1,4)     -3/2    (-xi, -eta, eta')          4      *** NOT IN THEIR LIST ***
+  (3,3)     -1      (xi, -eta, -eta')          9      *** NOT IN THEIR LIST ***
+  (1,3)     -1      (-xi, eta, -eta')          3      *** NOT IN THEIR LIST ***
+  (1,3)     0       (-xi, eta, eta')           3      match
+  (6,2)     -1/2    (-xi, -eta, eta')          12     *** NOT IN THEIR LIST ***
+  (3,2)     -1/2    (xi, eta, eta')            6      *** MISMATCH, they print (1, 1, -1) ***
+  (3,2)     1/2     (xi, eta, -eta')           6      *** MISMATCH, they print (1, 1, 1) ***
+  (1,2)     -1/2    (-xi, -eta, eta')          2      *** MISMATCH, they print (-1, -1, -1) ***
+  (1,2)     1/2     (-xi, -eta, -eta')         2      *** MISMATCH, they print (-1, -1, 1) ***
+  (1,2)     3/2     (-xi, -eta, eta')          2      *** NOT IN THEIR LIST ***
+
+  total dimension of Sym^3(7) = 84   OK
+  their pieces reproduced: 5/10   MISSING [(6, 2, Fraction(1, 2)), (3, 3, Fraction(1, 1)), (1, 4, Fraction(3, 2)), (1, 3, Fraction(1, 1)), (1, 2, Fraction(-3, 2))]
+  verdict: *** DISCREPANCY ***
+  >> the 84 fits Sym^3(7) and NOT Sym^3(7bar): the two readings are
+     distinguishable, so the 28 result is a real orientation and not a fit.
+
+==============================================================================
+  eq. (69): EXACT      eq. (70): EXACT
+==============================================================================
+
+==============================================================================
+48 = adjoint  -- their eq. (57)
+==============================================================================
+  colour SU2   (P6, P5, P5')          states
+  1      3     (+, +, +)             4
+  1      2     (+, -, +)             4
+  1      2     (+, -, -)             4
+  3      2     (-, +, -)             12
+
+  their eq. (57), SU(2)-nontrivial pieces:
+     (1,3)(+,+,+)  (1,2)(+,-,+) x2  (1,2)(+,-,-) x2  (3,2bar)+(3bar,2)(-,+,-)
+  computed: (1,3)(+,+,+) = 4 state(s);  (1,2)(+,-,+) = 4;  (1,2)(+,-,-) = 4;
+            colour-(3) doublets at (-,+,-) = 12
+  the (+,+,+) block has 4 states because 2 x 2bar = 3 + 1; their (1,3) is the
+  three, and the singlet is SU(2)-trivial so it is absent from their list.
+  their counts: triplet 3 (+1 singlet), 2+2 doublets = 4+4 states, coloured
+  6 doublets = 12 states                                                   MATCH
+  verdict: their eq. (57) parity assignment is reproduced
