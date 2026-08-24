@@ -21,6 +21,8 @@
 > - **Part V — *What the Higgs Potential Cannot See***
 >   → [github.com/karlesmarin/higgs-blind-class](https://github.com/karlesmarin/higgs-blind-class) · [Zenodo 10.5281/zenodo.21727094](https://doi.org/10.5281/zenodo.21727094)
 > - **Part VI — *Proton Decay in SU(7) Grand Gauge-Higgs Unification*** (this repo)
+> - **Part VII — *An Upper Bound on the Compactification Scale of SU(7) GHU***
+>   → [github.com/karlesmarin/su7-compactification-bound](https://github.com/karlesmarin/su7-compactification-bound) · [Zenodo 10.5281/zenodo.22087251](https://doi.org/10.5281/zenodo.22087251)
 
 Komori and Maru (arXiv:2503.04090) leave proton decay to future work in one sentence. This paper takes
 that sentence as its question and answers the half that can be answered from their own equations: at
