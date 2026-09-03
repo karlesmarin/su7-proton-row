@@ -25,6 +25,10 @@
 >   → [github.com/karlesmarin/su7-compactification-bound](https://github.com/karlesmarin/su7-compactification-bound) · [Zenodo 10.5281/zenodo.22087251](https://doi.org/10.5281/zenodo.22087251)
 > - **Part VIII — *A Certified 2.68 TeV Gap in the Closed-Form Map of the Compactification Scale***
 >   → [github.com/karlesmarin/su7-certified-gap](https://github.com/karlesmarin/su7-certified-gap) · [Zenodo 10.5281/zenodo.22159036](https://doi.org/10.5281/zenodo.22159036)
+> - **Part IX-A — *The Alphabet of Orbifold Boundary Conditions***
+>   → [github.com/karlesmarin/orbifold-alphabet](https://github.com/karlesmarin/orbifold-alphabet) · [Zenodo 10.5281/zenodo.22254861](https://doi.org/10.5281/zenodo.22254861)
+> - **Part IX-B — *An Affine Semigroup from Orbifold Boundary Conditions***
+>   → [github.com/karlesmarin/orbifold-semigroup](https://github.com/karlesmarin/orbifold-semigroup) · [Zenodo 10.5281/zenodo.22254863](https://doi.org/10.5281/zenodo.22254863)
 
 Komori and Maru (arXiv:2503.04090) leave proton decay to future work in one sentence. This paper takes
 that sentence as its question and answers the half that can be answered from their own equations: at
